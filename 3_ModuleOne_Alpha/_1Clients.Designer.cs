@@ -63,55 +63,57 @@
             // 
             button1.Location = new Point(2, 3);
             button1.Name = "button1";
-            button1.Size = new Size(75, 23);
+            button1.Size = new Size(156, 23);
             button1.TabIndex = 2;
-            button1.Text = "button1";
+            button1.Text = "Добавить проект";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.Location = new Point(83, 3);
+            button2.Location = new Point(164, 3);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(129, 23);
             button2.TabIndex = 3;
-            button2.Text = "button2";
+            button2.Text = "Добавить задачу";
             button2.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(164, 3);
+            button3.Location = new Point(299, 3);
             button3.Name = "button3";
-            button3.Size = new Size(75, 23);
+            button3.Size = new Size(100, 23);
             button3.TabIndex = 4;
-            button3.Text = "button3";
+            button3.Text = "Подробнее";
             button3.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
             button4.Location = new Point(2, 32);
             button4.Name = "button4";
-            button4.Size = new Size(75, 23);
+            button4.Size = new Size(173, 23);
             button4.TabIndex = 5;
-            button4.Text = "button4";
+            button4.Text = "Добавить комментарий";
             button4.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
-            button5.Location = new Point(83, 32);
+            button5.Location = new Point(181, 32);
             button5.Name = "button5";
-            button5.Size = new Size(75, 23);
+            button5.Size = new Size(218, 23);
             button5.TabIndex = 6;
-            button5.Text = "button5";
+            button5.Text = "Экспорт файла";
             button5.UseVisualStyleBackColor = true;
+           
             // 
             // button6
             // 
-            button6.Location = new Point(164, 32);
+            button6.Location = new Point(3, 61);
             button6.Name = "button6";
-            button6.Size = new Size(75, 23);
+            button6.Size = new Size(172, 23);
             button6.TabIndex = 7;
-            button6.Text = "button6";
+            button6.Text = "Добавить клиента";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // panel1
             // 
@@ -123,7 +125,7 @@
             panel1.Controls.Add(button4);
             panel1.Location = new Point(12, 318);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 63);
+            panel1.Size = new Size(402, 97);
             panel1.TabIndex = 8;
             // 
             // _1Clients
