@@ -40,7 +40,7 @@
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(397, 78);
+            radioButton3.Location = new Point(549, 126);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(64, 19);
             radioButton3.TabIndex = 13;
@@ -51,18 +51,18 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(397, 53);
+            radioButton2.Location = new Point(550, 101);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(109, 19);
+            radioButton2.Size = new Size(63, 19);
             radioButton2.TabIndex = 12;
             radioButton2.TabStop = true;
-            radioButton2.Text = "Ответственный";
+            radioButton2.Text = "Задача";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(397, 27);
+            radioButton1.Location = new Point(550, 78);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(65, 19);
             radioButton1.TabIndex = 11;
@@ -74,11 +74,11 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F);
-            label2.Location = new Point(194, 19);
+            label2.Location = new Point(464, 69);
             label2.Name = "label2";
-            label2.Size = new Size(195, 32);
+            label2.Size = new Size(60, 32);
             label2.TabIndex = 10;
-            label2.Text = "Фильтровать по:";
+            label2.Text = "Тип:";
             // 
             // dataGridView1
             // 
@@ -94,9 +94,9 @@
             label1.Font = new Font("Segoe UI", 24F);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(124, 45);
+            label1.Size = new Size(441, 45);
             label1.TabIndex = 8;
-            label1.Text = "Задачи";
+            label1.Text = "Рабочее время сотрудников";
             // 
             // _4Worktime
             // 
