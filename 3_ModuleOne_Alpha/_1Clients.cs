@@ -31,23 +31,26 @@ namespace _3_ModuleOne_Alpha
 
             var testList = new List<string>();
             testList = dBCon.Select();
-            var people = new List<string>() { "Tom", "Bob", "Sam" };
+            
 
 
             DataTable table = new DataTable();
             table.Columns.Add("ID", Type.GetType("System.Int32"));
+           
             table.Columns.Add("Name", Type.GetType("System.String"));
 
 
             dataGridView1.DataSource = table;
             int i = 0;
+            int j = 1;
             foreach (var name in testList)
             {
                 
                 table.Rows.Add(i);
-                dataGridView1.Rows[i].Cells["name"].Value = name;
+                dataGridView1.Rows[i].Cells[j].Value = name;
 
                 i++;
+                
             }
         }
     }
