@@ -103,7 +103,6 @@
             button5.TabIndex = 6;
             button5.Text = "Экспорт файла";
             button5.UseVisualStyleBackColor = true;
-           
             // 
             // button6
             // 
@@ -138,6 +137,7 @@
             Controls.Add(label1);
             Name = "_1Clients";
             Text = "_1Clients";
+            Load += _1Clients_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
