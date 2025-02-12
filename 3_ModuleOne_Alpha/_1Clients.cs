@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySqlX.XDevAPI;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -28,30 +29,9 @@ namespace _3_ModuleOne_Alpha
         {
             DB_1Clients dBCon = new DB_1Clients();
 
-
-            var testList = new List<string>();
-            testList = dBCon.Select();
+            dataGridView1.DataSource = dBCon.Select();
+            dataGridView1.Columns[0].HeaderText = "Имя клиента";
             
-
-
-            DataTable table = new DataTable();
-            table.Columns.Add("ID", Type.GetType("System.Int32"));
-           
-            table.Columns.Add("Name", Type.GetType("System.String"));
-
-
-            dataGridView1.DataSource = table;
-            int i = 0;
-            int j = 1;
-            foreach (var name in testList)
-            {
-                
-                table.Rows.Add(i);
-                dataGridView1.Rows[i].Cells[j].Value = name;
-
-                i++;
-                
-            }
         }
     }
 }

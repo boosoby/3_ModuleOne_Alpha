@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -138,13 +139,10 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Select statement
-        public List<string> Select()
+        public BindingSource Select()
         {
-            string query = "SELECT * FROM clients";
+            string query = "SELECT full_name FROM clients";
 
-            //Create a list to store the result
-            List<string> list = new List<string>();
-            list = new List<string>();
 
 
             //Open connection
@@ -153,31 +151,27 @@ namespace _3_ModuleOne_Alpha
                 //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                //Read the data and store them in the list
-                while (dataReader.Read())
-                {
-                    list.Add(dataReader["full_name"] + "");
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
 
-
-                }
-
-                //close Data Reader
-                dataReader.Close();
 
                 //close Connection
                 this.CloseConnection();
 
-                //return list to be displayed
-                return list;
+
+                return bindingSource;
             }
             else
             {
-                return list;
+                // return list;
+                return null;
             }
         }
-
         //Count statement
         public int Count()
         {
