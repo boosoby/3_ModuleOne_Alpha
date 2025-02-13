@@ -16,5 +16,18 @@ namespace _3_ModuleOne_Alpha
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+        }
+
+        private void _3Tasks_Load(object sender, EventArgs e)
+        {
+            DB_3Tasks dBCon = new DB_3Tasks();
+
+            dataGridView1.DataSource = dBCon.Select();
+        }
     }
 }

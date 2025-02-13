@@ -31,6 +31,7 @@ namespace _3_ModuleOne_Alpha
 
             dataGridView1.DataSource = dBCon.Select();
             dataGridView1.Columns[0].HeaderText = "Имя клиента";
+            //
             
         }
     }
