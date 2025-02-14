@@ -40,7 +40,7 @@
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(549, 126);
+            radioButton3.Location = new Point(107, 120);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(64, 19);
             radioButton3.TabIndex = 13;
@@ -51,7 +51,7 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(550, 101);
+            radioButton2.Location = new Point(108, 95);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(63, 19);
             radioButton2.TabIndex = 12;
@@ -62,7 +62,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(550, 78);
+            radioButton1.Location = new Point(108, 72);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(65, 19);
             radioButton1.TabIndex = 11;
@@ -74,7 +74,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18F);
-            label2.Location = new Point(464, 69);
+            label2.Location = new Point(22, 63);
             label2.Name = "label2";
             label2.Size = new Size(60, 32);
             label2.TabIndex = 10;
@@ -83,9 +83,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 122);
+            dataGridView1.Location = new Point(12, 179);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(513, 255);
+            dataGridView1.Size = new Size(1115, 312);
             dataGridView1.TabIndex = 9;
             // 
             // label1
@@ -102,7 +102,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1195, 618);
             Controls.Add(radioButton3);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -111,6 +111,7 @@
             Controls.Add(label1);
             Name = "_4Worktime";
             Text = "_4Worktime";
+            Load += _4Worktime_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

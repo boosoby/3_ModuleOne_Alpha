@@ -55,10 +55,11 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 122);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(513, 255);
+            dataGridView1.Size = new Size(1073, 255);
             dataGridView1.TabIndex = 11;
             // 
             // label1
@@ -75,13 +76,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1209, 450);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Name = "_5Projects";
             Text = "_5Projects";
+            Load += _5Projects_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

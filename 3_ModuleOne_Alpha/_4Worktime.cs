@@ -16,5 +16,12 @@ namespace _3_ModuleOne_Alpha
         {
             InitializeComponent();
         }
+
+        private void _4Worktime_Load(object sender, EventArgs e)
+        {
+            DB_4Worktime dBCon = new DB_4Worktime();
+
+            dataGridView1.DataSource = dBCon.Select();
+        }
     }
 }

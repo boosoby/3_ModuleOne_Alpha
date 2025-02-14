@@ -102,7 +102,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 57);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(377, 255);
+            dataGridView1.Size = new Size(753, 255);
             dataGridView1.TabIndex = 10;
             // 
             // label1
@@ -125,6 +125,7 @@
             Controls.Add(label1);
             Name = "_6Deals";
             Text = " ";
+            Load += _6Deals_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
