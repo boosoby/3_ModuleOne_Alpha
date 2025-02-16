@@ -70,6 +70,7 @@
             button1.TabIndex = 4;
             button1.Text = "Добавить новое лицо";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += this.button1_Click;
             // 
             // button3
             // 
@@ -88,7 +89,7 @@
             button4.TabIndex = 15;
             button4.Text = "Готово";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += this.button4_Click;
+            button4.Click += button4_Click;
             // 
             // label2
             // 

@@ -73,5 +73,11 @@ namespace _3_ModuleOne_Alpha
             }
 
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _1_2Contact_faces_Reg formLogIn = new _1_2Contact_faces_Reg(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+
+        }
     }
 }
