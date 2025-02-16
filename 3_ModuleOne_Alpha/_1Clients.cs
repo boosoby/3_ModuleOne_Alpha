@@ -22,7 +22,8 @@ namespace _3_ModuleOne_Alpha
         List<_1Clients> _1Clientslist;
         private void button6_Click(object sender, EventArgs e)
         {
-
+            _1_1Clients_Reg formLogIn = new _1_1Clients_Reg(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
         }
 
         private void _1Clients_Load(object sender, EventArgs e)
