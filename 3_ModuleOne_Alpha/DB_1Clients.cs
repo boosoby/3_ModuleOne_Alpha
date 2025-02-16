@@ -84,9 +84,28 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert()
+        public void Insert(string insert_string, int insert_int)
         {
-            string query = "INSERT INTO tableinfo (name, age) VALUES('John Smith', '33')";
+            string query = $"INSERT INTO clients (full_name, idcontact_face) VALUES('{insert_string}', {insert_int})";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        //Insert statement
+        public void Insert_2(int insert_1, int insert_2)
+        {
+            Select_2();
+            string query = $"INSERT INTO client_managers (idclients, idmanagers) VALUES('{insert_1}', {insert_2})";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -165,6 +184,41 @@ namespace _3_ModuleOne_Alpha
 
 
                 return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+
+        public string Select_2()
+        {
+            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataSet dt = new DataSet();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+                return dt.Tables[0].Rows[0].ToString();
+
+              //  return bindingSource;
             }
             else
             {

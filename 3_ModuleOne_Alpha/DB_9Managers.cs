@@ -9,8 +9,8 @@ using MySql.Data.MySqlClient;
 namespace _3_ModuleOne_Alpha
 {
 
-    class DB_1_1Contact_faces
-{
+    class DB_9Managers
+    {
         private MySqlConnection connection;
         private string server;
         private string database;
@@ -18,7 +18,7 @@ namespace _3_ModuleOne_Alpha
         private string password;
 
         //Constructor
-        public DB_1_1Contact_faces()
+        public DB_9Managers()
         {
             Initialize();
         }
@@ -142,7 +142,7 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT * FROM contact_face";
+            string query = "SELECT idmanagers, full_name FROM managers";
 
 
 

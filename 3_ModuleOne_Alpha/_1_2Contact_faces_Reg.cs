@@ -22,6 +22,7 @@ namespace _3_ModuleOne_Alpha
         {
             DB_1_1Contact_faces dBinsert = new DB_1_1Contact_faces();
             dBinsert.Insert(textBox1.Text, textBox2.Text, textBox3.Text);
+           
         }
     }
 }

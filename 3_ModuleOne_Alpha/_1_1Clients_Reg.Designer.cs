@@ -33,10 +33,8 @@
             button1 = new Button();
             button3 = new Button();
             button4 = new Button();
-            label3 = new Label();
             label2 = new Label();
             label4 = new Label();
-            textBox3 = new TextBox();
             textBox1 = new TextBox();
             label5 = new Label();
             dataGridView2 = new DataGridView();
@@ -50,6 +48,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 93);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.Size = new Size(684, 152);
             dataGridView1.TabIndex = 3;
             // 
@@ -67,7 +66,7 @@
             // 
             button1.Location = new Point(491, 251);
             button1.Name = "button1";
-            button1.Size = new Size(205, 21);
+            button1.Size = new Size(205, 23);
             button1.TabIndex = 4;
             button1.Text = "Добавить новое лицо";
             button1.UseVisualStyleBackColor = true;
@@ -89,22 +88,13 @@
             button4.TabIndex = 15;
             button4.Text = "Готово";
             button4.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(10, 330);
-            label3.Name = "label3";
-            label3.Size = new Size(109, 21);
-            label3.TabIndex = 14;
-            label3.Text = "Комментарий";
+            button4.Click += this.button4_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(12, 398);
+            label2.Location = new Point(12, 338);
             label2.Name = "label2";
             label2.Size = new Size(166, 21);
             label2.TabIndex = 13;
@@ -119,14 +109,6 @@
             label4.Size = new Size(107, 21);
             label4.TabIndex = 12;
             label4.Text = "ФИО клиента";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(122, 330);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(261, 65);
-            textBox3.TabIndex = 11;
             // 
             // textBox1
             // 
@@ -149,8 +131,9 @@
             // 
             dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(12, 444);
+            dataGridView2.Location = new Point(12, 384);
             dataGridView2.Name = "dataGridView2";
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView2.Size = new Size(684, 152);
             dataGridView2.TabIndex = 18;
             // 
@@ -163,10 +146,8 @@
             Controls.Add(label5);
             Controls.Add(button3);
             Controls.Add(button4);
-            Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label4);
-            Controls.Add(textBox3);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
@@ -186,10 +167,8 @@
         private Button button1;
         private Button button3;
         private Button button4;
-        private Label label3;
         private Label label2;
         private Label label4;
-        private TextBox textBox3;
         private TextBox textBox1;
         private Label label5;
         private DataGridView dataGridView2;
