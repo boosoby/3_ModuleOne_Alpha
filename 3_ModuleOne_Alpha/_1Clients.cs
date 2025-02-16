@@ -33,7 +33,13 @@ namespace _3_ModuleOne_Alpha
             dataGridView1.DataSource = dBCon.Select();
             dataGridView1.Columns[0].HeaderText = "Имя клиента";
             //
-            
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _1_3Comments formLogIn = new _1_3Comments(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
         }
     }
 }

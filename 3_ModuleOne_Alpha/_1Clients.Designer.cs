@@ -95,6 +95,7 @@
             button4.TabIndex = 5;
             button4.Text = "Добавить комментарий";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
