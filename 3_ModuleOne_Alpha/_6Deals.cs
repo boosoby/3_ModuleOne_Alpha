@@ -23,5 +23,23 @@ namespace _3_ModuleOne_Alpha
 
             dataGridView1.DataSource = dBCon.Select();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _6_1AddDeal formLogIn = new _6_1AddDeal(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            _6_2Payment formLogIn = new _6_2Payment(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _6_3Print formLogIn = new _6_3Print(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+        }
     }
 }

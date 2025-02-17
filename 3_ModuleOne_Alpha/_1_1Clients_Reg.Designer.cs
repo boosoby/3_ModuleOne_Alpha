@@ -70,7 +70,7 @@
             button1.TabIndex = 4;
             button1.Text = "Добавить новое лицо";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += this.button1_Click;
+            button1.Click += button1_Click;
             // 
             // button3
             // 

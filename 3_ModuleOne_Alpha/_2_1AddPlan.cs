@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace _3_ModuleOne_Alpha
 {
-    public partial class _2Plan : Form
+    public partial class _2_1AddPlan : Form
     {
-        public _2Plan()
+        public _2_1AddPlan()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            _2_1AddPlan formLogIn = new _2_1AddPlan(); //FormLogIn — имя формы, которую хотим открыть
-            formLogIn.ShowDialog();
         }
     }
 }

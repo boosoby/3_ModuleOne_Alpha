@@ -4,7 +4,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace _3_ModuleOne_Alpha
 {
@@ -141,7 +143,19 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT * FROM work_time";
+            string query =
+@"SELECT clients.full_name as 'Имя клиента', managers.full_name as 'Имя менеджера', goods.good_name as 'Товар/услуга',
+deals.amount as 'Сумма сделки',
+payment.pay_date as 'Срок оплаты',
+pay_status.status_name as 'Статус оплаты',
+payment.pay_percent as 'Процент оплаты'
+ FROM goods_in_deals
+join deals on deals.iddeals = goods_in_deals.iddeals
+join clients on deals.idclient_managers = clients.idclients
+join managers on deals.idclient_managers = managers.idmanagers
+join payment on deals.iddeals = payment.iddeals
+join pay_status on pay_status.idpay_status = payment.pay_status
+join goods on goods.idgoods = goods_in_deals.idgoods;";
 
 
 
