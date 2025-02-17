@@ -173,6 +173,41 @@ namespace _3_ModuleOne_Alpha
                 return null;
             }
         }
+
+        //Select statement
+        public BindingSource Select_2(int idclients)
+        {
+            string query = $"select contact_face.full_name AS fio, contact_face.contact_data, contact_face.job\r\nfrom contact_face\r\nINNER JOIN clients ON clients.idcontact_face = contact_face.idcontact_face\r\nwhere idclients = {idclients} ; ";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
         //Count statement
         public int Count()
         {

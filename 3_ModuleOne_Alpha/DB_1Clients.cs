@@ -160,7 +160,7 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT full_name FROM clients";
+            string query = "SELECT idclients, full_name FROM clients";
 
 
 
@@ -226,6 +226,45 @@ namespace _3_ModuleOne_Alpha
                 return null;
             }
         }
+
+        public List<string> Select_3(int idclients)
+        {
+            string query = $"SELECT full_name FROM clients where idclients = {idclients}";
+
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["full_name"] + "");
+
+
+                }
+
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return list;
+            }
+            else
+            {
+                return list;
+            }
+        }
+
+
         //Count statement
         public int Count()
         {

@@ -9,7 +9,7 @@ using MySql.Data.MySqlClient;
 namespace _3_ModuleOne_Alpha
 {
 
-    class DB_8Comments
+    class DB_10Communications
     {
         private MySqlConnection connection;
         private string server;
@@ -18,7 +18,7 @@ namespace _3_ModuleOne_Alpha
         private string password;
 
         //Constructor
-        public DB_8Comments()
+        public DB_10Communications()
         {
             Initialize();
         }
@@ -85,9 +85,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string text, int idclients)
+        public void Insert(string full_name, string contact_data, string job)
         {
-            string query = $"INSERT INTO client_comment (text, idclients) VALUES('{text}', '{idclients}')";
+            string query = $"INSERT INTO contact_faces (full_name, contact_data, job) VALUES('{full_name}', {contact_data}, {job})";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -140,9 +140,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Select statement
-        public BindingSource Select(int idclient)
+        public BindingSource Select(int idclients)
         {
-            string query = $"SELECT text FROM client_comment where idclients = {idclient}";
+            string query = $"select communications.idcommunications, communications.idtext, communications.date, communication_type.type_name from communications\r\njoin communication_type on communications.idcommunication_type = communication_type.idcommunication_type\r\nwhere idclients = {idclients};";
 
 
 
@@ -173,6 +173,8 @@ namespace _3_ModuleOne_Alpha
                 return null;
             }
         }
+
+
         //Count statement
         public int Count()
         {

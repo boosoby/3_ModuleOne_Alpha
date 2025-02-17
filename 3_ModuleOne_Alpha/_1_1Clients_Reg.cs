@@ -41,7 +41,7 @@ namespace _3_ModuleOne_Alpha
             {
                 if (Rows.Selected)
                 {
-                    
+
                     
                     text = Rows.Cells[0].Value.ToString();
                     DB_1Clients dBinsert = new DB_1Clients();
