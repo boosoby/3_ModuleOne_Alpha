@@ -85,9 +85,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string full_name, string contact_data, string job)
+        public void Insert(string date, int idclients, int idcommunication_type, string idtext)
         {
-            string query = $"INSERT INTO contact_faces (full_name, contact_data, job) VALUES('{full_name}', {contact_data}, {job})";
+            string query = $"INSERT INTO communications (idclients, idcommunication_type, idtext, date) VALUES('{idclients}', '{idcommunication_type}', '{idtext}', '{date}');";
 
             //open connection
             if (this.OpenConnection() == true)

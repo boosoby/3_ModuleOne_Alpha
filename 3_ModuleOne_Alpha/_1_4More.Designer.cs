@@ -37,6 +37,7 @@
             dataGridView2 = new DataGridView();
             label6 = new Label();
             dataGridView3 = new DataGridView();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
@@ -129,11 +130,22 @@
             dataGridView3.Size = new Size(684, 255);
             dataGridView3.TabIndex = 23;
             // 
+            // button1
+            // 
+            button1.Location = new Point(500, 401);
+            button1.Name = "button1";
+            button1.Size = new Size(196, 23);
+            button1.TabIndex = 25;
+            button1.Text = "Добавить взаимодействие";
+            button1.UseVisualStyleBackColor = true;
+           
+            // 
             // _1_4More
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 962);
+            Controls.Add(button1);
             Controls.Add(label6);
             Controls.Add(dataGridView3);
             Controls.Add(label4);
@@ -164,5 +176,6 @@
         private DataGridView dataGridView2;
         private Label label6;
         private DataGridView dataGridView3;
+        private Button button1;
     }
 }
