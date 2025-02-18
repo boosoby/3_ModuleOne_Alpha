@@ -211,7 +211,7 @@ namespace _3_ModuleOne_Alpha
         public BindingSource Select()
         {
             string query =
-@"SELECT clients.full_name as 'Имя клиента', managers.full_name as 'Имя менеджера', goods.good_name as 'Товар/услуга',
+@"SELECT deals.iddeals as 'ID', clients.full_name as 'Имя клиента', managers.full_name as 'Имя менеджера', goods.good_name as 'Товар/услуга',
 deals.amount as 'Сумма сделки',
 payment.pay_date as 'Срок оплаты',
 pay_status.status_name as 'Статус оплаты',
@@ -292,8 +292,50 @@ join goods on goods.idgoods = goods_in_deals.idgoods;";
             }
         }
 
-        
 
+
+        public string Select_pay_date(int iddeals)
+        {
+
+            string query = $"SELECT pay_date FROM payment where iddeals = {iddeals}";
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["pay_date"] + "");
+                }
+
+                try
+                {
+                string pay_date = Convert.ToString(list[0]);
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return pay_date;
+                    //blah
+                }
+                catch { }
+                return null;
+            }
+            else
+            {
+                string pay_date = "";
+                return pay_date;
+            }
+        }
 
 
 

@@ -127,6 +127,7 @@
             Controls.Add(radioButton1);
             Name = "_1_4_1AddCommunication";
             Text = "_1_4_1AddCommunication";
+            Load += _1_4_1AddCommunication_Load;
             ResumeLayout(false);
             PerformLayout();
         }

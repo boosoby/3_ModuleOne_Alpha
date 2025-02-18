@@ -45,5 +45,10 @@ namespace _3_ModuleOne_Alpha
         {
 
         }
+
+        private void _1_4_1AddCommunication_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
