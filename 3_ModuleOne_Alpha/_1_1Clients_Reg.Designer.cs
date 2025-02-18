@@ -155,6 +155,7 @@
             Controls.Add(label1);
             Name = "_1_1Clients_Reg";
             Text = "_1_2Contact_faces_Select";
+            Load += _1_1Clients_Reg_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);

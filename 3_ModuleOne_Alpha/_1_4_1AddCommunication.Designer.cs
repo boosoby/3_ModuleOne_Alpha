@@ -110,7 +110,7 @@
             button1.TabIndex = 7;
             button1.Text = "Готово";
             button1.UseVisualStyleBackColor = true;
-           
+            button1.Click += button1_Click;
             // 
             // _1_4_1AddCommunication
             // 

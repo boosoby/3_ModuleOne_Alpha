@@ -27,16 +27,23 @@ namespace _3_ModuleOne_Alpha
             int idcommunication_type = 0;
             string datestring = dateTimePicker1.Value.ToString("yyyy'-'MM'-'dd HH':'mm':'ss");
             string idtext = textBox1.Text;
-            
+
             DB_10Communications dB_10Communications = new DB_10Communications();
-            if (radioButton1.Checked == true) {
+            if (radioButton1.Checked == true)
+            {
                 idcommunication_type = 1;
             }
-            else if (radioButton2.Checked == true) {
+            else if (radioButton2.Checked == true)
+            {
                 idcommunication_type = 2;
             }
             dB_10Communications.Insert(datestring, idclient, idcommunication_type, idtext);
-                //    public void Insert(string date, int idclients, int idcommunication_type, string idtext)
+            //    public void Insert(string date, int idclients, int idcommunication_type, string idtext)
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

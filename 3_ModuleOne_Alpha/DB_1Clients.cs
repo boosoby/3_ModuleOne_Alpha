@@ -191,6 +191,47 @@ namespace _3_ModuleOne_Alpha
                 return null;
             }
         }
+        public int Select_last_client()
+        {
+
+            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["idclients"] + "");
+
+
+                }
+
+
+
+                int iddeals = Convert.ToInt32(list[0]);
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return iddeals;
+            }
+            else
+            {
+                int iddeals = 0;
+                return iddeals;
+            }
+        }
+
 
         public string Select_2()
         {

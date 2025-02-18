@@ -42,30 +42,30 @@ namespace _3_ModuleOne_Alpha
                 if (Rows.Selected)
                 {
 
-                    
+
                     text = Rows.Cells[0].Value.ToString();
                     DB_1Clients dBinsert = new DB_1Clients();
                     int insert_ID = Convert.ToInt32(text);
-                    dBinsert.Insert(textBox1.Text, insert_ID); 
-                   
+                    dBinsert.Insert(textBox1.Text, insert_ID);
+
 
 
                 }
 
-            } 
+            }
             foreach (DataGridViewRow Rows in this.dataGridView2.Rows)
 
             {
                 if (Rows.Selected)
                 {
-                    
-                    
+
+
                     IDmanagers = Rows.Cells[0].Value.ToString();
                     DB_1Clients dBinsert = new DB_1Clients();
                     int managers_ID = Convert.ToInt32(IDmanagers);
-                    int clients_ID = Convert.ToInt32(text);
-                    dBinsert.Insert_2(clients_ID, managers_ID ); 
-                   
+                    int clients_ID = dBinsert.Select_last_client();
+                    dBinsert.Insert_2(clients_ID, managers_ID);
+
 
 
                 }
@@ -77,6 +77,11 @@ namespace _3_ModuleOne_Alpha
         {
             _1_2Contact_faces_Reg formLogIn = new _1_2Contact_faces_Reg(); //FormLogIn — имя формы, которую хотим открыть
             formLogIn.ShowDialog();
+
+        }
+
+        private void _1_1Clients_Reg_Load(object sender, EventArgs e)
+        {
 
         }
     }

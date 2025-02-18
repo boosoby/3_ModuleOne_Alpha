@@ -4,14 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace _3_ModuleOne_Alpha
 {
-    class DB_6Deals
-    {
+    class DB_12Goods_in_deals    {
         private MySqlConnection connection;
         private string server;
         private string database;
@@ -19,7 +16,7 @@ namespace _3_ModuleOne_Alpha
         private string password;
 
         //Constructor
-        public DB_6Deals()
+        public DB_12Goods_in_deals()
         {
             Initialize();
         }
@@ -86,14 +83,13 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string date, int amount, int iddeal_status, int idclients, string deals_name)
+        public void Insert(int quantity, int idgoods)
         {
-            
-           
             var testList = new List<string>();
-            testList = Select_client_managers(idclients);
-            string idclient_managers = testList[0];
-            string query = $"insert into deals (date, amount, iddeal_status, idclient_managers, deals_name)\r\nvalues ('{date}','{amount}','{iddeal_status}','{idclient_managers}', '{deals_name}');";
+            testList = Select_last_deal();
+            int iddeals = Convert.ToInt32(testList[0]);
+               
+            string query = $"INSERT INTO goods_in_deals (quantity, idgoods, iddeals) VALUES('{quantity}', {idgoods}, {iddeals})";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -108,14 +104,11 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
             }
         }
-
-        public void Insert_payment_deal(string pay_date, int pay_status)
+        //Insert statement
+        public void Insert_2(int insert_1, int insert_2)
         {
-
-
-            int iddeals = Select_last_deal();
-            
-            string query = $"insert into payment (pay_date, pay_status, iddeals) values ('{pay_date}','{pay_status}','{iddeals}');";
+          
+            string query = $"INSERT INTO client_managers (idclients, idmanagers) VALUES('{insert_1}', {insert_2})";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -130,6 +123,7 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
             }
         }
+
         //Update statement
         public void Update()
         {
@@ -152,47 +146,6 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
             }
         }
-        public int Select_last_deal()
-        {
-
-            string query = "SELECT iddeals FROM deals ORDER BY iddeals desc limit 1";
-            List<string> list = new List<string>();
-            list = new List<string>();
-
-            //Open connection
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                //Read the data and store them in the list
-                while (dataReader.Read())
-                {
-                    list.Add(dataReader["iddeals"] + "");
-
-
-                }
-
-               
-                
-                int iddeals = Convert.ToInt32(list[0]);
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                this.CloseConnection();
-
-                //return list to be displayed
-                return iddeals;
-            }
-            else
-            {
-                int iddeals = 0;
-                return iddeals ;
-            }
-        }
-
 
         //Delete statement
         public void Delete()
@@ -208,22 +161,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Select statement
-        public BindingSource Select()
+        public BindingSource Select_goods()
         {
-            string query =
-@"SELECT clients.full_name as 'Имя клиента', managers.full_name as 'Имя менеджера', goods.good_name as 'Товар/услуга',
-deals.amount as 'Сумма сделки',
-payment.pay_date as 'Срок оплаты',
-pay_status.status_name as 'Статус оплаты',
-payment.pay_percent as 'Процент оплаты',
-deals.deals_name as 'Название сделки'
- FROM goods_in_deals
-join deals on deals.iddeals = goods_in_deals.iddeals
-join clients on deals.idclient_managers = clients.idclients
-join managers on deals.idclient_managers = managers.idmanagers
-join payment on deals.iddeals = payment.iddeals
-join pay_status on pay_status.idpay_status = payment.pay_status
-join goods on goods.idgoods = goods_in_deals.idgoods;";
+            string query = "SELECT *  FROM goods";
 
 
 
@@ -255,10 +195,11 @@ join goods on goods.idgoods = goods_in_deals.idgoods;";
             }
         }
 
-        public List<string> Select_client_managers(int idclients)
-        {
-            string query = $"select idclient_managers from client_managers\r\nwhere idclients = {idclients};";
 
+        public List<string> Select_last_deal()
+        {
+           
+            string query = "SELECT iddeals FROM deals ORDER BY iddeals desc limit 1";
             List<string> list = new List<string>();
             list = new List<string>();
 
@@ -272,7 +213,7 @@ join goods on goods.idgoods = goods_in_deals.idgoods;";
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    list.Add(dataReader["idclient_managers"] + "");
+                    list.Add(dataReader["iddeals"] + "");
 
 
                 }
@@ -292,15 +233,11 @@ join goods on goods.idgoods = goods_in_deals.idgoods;";
             }
         }
 
-        
-
-
-
 
         //Count statement
         public int Count()
         {
-            string query = "SELECT Count(*) FROM deals";
+            string query = "SELECT Count(*) FROM tableinfo";
             int Count = -1;
 
             //Open Connection
