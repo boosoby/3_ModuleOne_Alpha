@@ -38,6 +38,8 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             button4 = new Button();
+            label2 = new Label();
+            textBox2 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             // 
             radioButton1.AutoSize = true;
             radioButton1.Font = new Font("Segoe UI", 12F);
-            radioButton1.Location = new Point(12, 251);
+            radioButton1.Location = new Point(39, 249);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(79, 25);
             radioButton1.TabIndex = 55;
@@ -69,7 +71,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(12, 283);
+            label3.Location = new Point(58, 299);
             label3.Name = "label3";
             label3.Size = new Size(60, 21);
             label3.TabIndex = 54;
@@ -77,9 +79,9 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(120, 283);
+            dateTimePicker1.Location = new Point(124, 297);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.Size = new Size(261, 23);
             dateTimePicker1.TabIndex = 53;
             // 
             // label5
@@ -94,7 +96,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(103, 332);
+            button3.Location = new Point(133, 367);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 51;
@@ -115,7 +117,7 @@
             dataGridView1.Location = new Point(12, 93);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(684, 152);
+            dataGridView1.Size = new Size(870, 152);
             dataGridView1.TabIndex = 49;
             // 
             // label1
@@ -130,18 +132,38 @@
             // 
             // button4
             // 
-            button4.Location = new Point(28, 332);
+            button4.Location = new Point(58, 367);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 57;
             button4.Text = "Готово";
             button4.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(576, 255);
+            label2.Name = "label2";
+            label2.Size = new Size(160, 21);
+            label2.TabIndex = 59;
+            label2.Text = "Изменить план на %:";
+            label2.Click += label2_Click;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(742, 253);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(140, 23);
+            textBox2.TabIndex = 58;
+            // 
             // _2_1AddPlan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 786);
+            ClientSize = new Size(901, 495);
+            Controls.Add(label2);
+            Controls.Add(textBox2);
             Controls.Add(button4);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -154,6 +176,7 @@
             Controls.Add(label1);
             Name = "_2_1AddPlan";
             Text = "_2_1AddPlan";
+            Load += _2_1AddPlan_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -171,5 +194,7 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Button button4;
+        private Label label2;
+        private TextBox textBox2;
     }
 }

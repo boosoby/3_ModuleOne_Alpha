@@ -83,6 +83,7 @@
             button4.TabIndex = 25;
             button4.Text = "Готово";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label2
             // 
@@ -200,6 +201,7 @@
             Controls.Add(label1);
             Name = "_6_1AddDeal";
             Text = "_6_1AddDeal";
+            Load += _6_1AddDeal_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

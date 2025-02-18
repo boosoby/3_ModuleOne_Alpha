@@ -16,5 +16,18 @@ namespace _3_ModuleOne_Alpha
         {
             InitializeComponent();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void _2_1AddPlan_Load(object sender, EventArgs e)
+        {
+           DB_9Managers dBCon = new DB_9Managers();
+
+            dataGridView1.DataSource = dBCon.Select();
+           // dataGridView1.Columns[0].HeaderText = "Имя клиента";
+        }
     }
 }

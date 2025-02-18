@@ -37,6 +37,8 @@
             textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            label2 = new Label();
+            textBox2 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -50,6 +52,7 @@
             radioButton2.TabStop = true;
             radioButton2.Text = "На основании сделки";
             radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.CheckedChanged += radioButton2_CheckedChanged;
             // 
             // radioButton1
             // 
@@ -61,6 +64,7 @@
             radioButton1.TabStop = true;
             radioButton1.Text = "Независимо";
             radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // label5
             // 
@@ -74,16 +78,17 @@
             // 
             // button3
             // 
-            button3.Location = new Point(93, 348);
+            button3.Location = new Point(91, 377);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 41;
             button3.Text = "Назад";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(12, 348);
+            button4.Location = new Point(10, 377);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 40;
@@ -96,13 +101,13 @@
             label4.Font = new Font("Segoe UI", 12F);
             label4.Location = new Point(12, 299);
             label4.Name = "label4";
-            label4.Size = new Size(111, 21);
+            label4.Size = new Size(117, 21);
             label4.TabIndex = 38;
-            label4.Text = "Сумма сделки";
+            label4.Text = "Сумма оплаты:";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(124, 302);
+            textBox1.Location = new Point(155, 301);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(261, 23);
             textBox1.TabIndex = 37;
@@ -127,11 +132,30 @@
             label1.TabIndex = 34;
             label1.Text = "Оплата";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F);
+            label2.Location = new Point(12, 334);
+            label2.Name = "label2";
+            label2.Size = new Size(137, 21);
+            label2.TabIndex = 50;
+            label2.Text = "Название оплаты:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(155, 336);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(261, 23);
+            textBox2.TabIndex = 49;
+            // 
             // _6_2Payment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 694);
+            Controls.Add(label2);
+            Controls.Add(textBox2);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(label5);
@@ -143,6 +167,7 @@
             Controls.Add(label1);
             Name = "_6_2Payment";
             Text = "_6_2Payment";
+            Load += _6_2Payment_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -159,5 +184,7 @@
         private TextBox textBox1;
         private DataGridView dataGridView1;
         private Label label1;
+        private Label label2;
+        private TextBox textBox2;
     }
 }
