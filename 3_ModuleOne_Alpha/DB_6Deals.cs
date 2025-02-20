@@ -4,11 +4,13 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace _3_ModuleOne_Alpha
 {
-    class DB_1Clients
+    class DB_6Deals
     {
         private MySqlConnection connection;
         private string server;
@@ -17,7 +19,7 @@ namespace _3_ModuleOne_Alpha
         private string password;
 
         //Constructor
-        public DB_1Clients()
+        public DB_6Deals()
         {
             Initialize();
         }
@@ -84,9 +86,36 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string insert_string, int insert_int)
+        public void Insert(string date, int amount, int iddeal_status, int idclients, string deals_name)
         {
-            string query = $"INSERT INTO clients (full_name, idcontact_face) VALUES('{insert_string}', {insert_int})";
+            
+           
+            var testList = new List<string>();
+            testList = Select_client_managers(idclients);
+            string idclient_managers = testList[0];
+            string query = $"insert into deals (date, amount, iddeal_status, idclient_managers, deals_name)\r\nvalues ('{date}','{amount}','{iddeal_status}','{idclient_managers}', '{deals_name}');";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+                //
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
+        public void Insert_payment_deal(string pay_date, int pay_status)
+        {
+
+
+            int iddeals = Select_last_deal();
+            
+            string query = $"insert into payment (pay_date, pay_status, iddeals) values ('{pay_date}','{pay_status}','{iddeals}');";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -101,26 +130,6 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
             }
         }
-        //Insert statement
-        public void Insert_2(int insert_1, int insert_2)
-        {
-            Select_2();
-            string query = $"INSERT INTO client_managers (idclients, idmanagers) VALUES('{insert_1}', {insert_2})";
-
-            //open connection
-            if (this.OpenConnection() == true)
-            {
-                //create command and assign the query and connection from the constructor
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                //Execute command
-                cmd.ExecuteNonQuery();
-
-                //close connection
-                this.CloseConnection();
-            }
-        }
-
         //Update statement
         public void Update()
         {
@@ -143,6 +152,47 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
             }
         }
+        public int Select_last_deal()
+        {
+
+            string query = "SELECT iddeals FROM deals ORDER BY iddeals desc limit 1";
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["iddeals"] + "");
+
+
+                }
+
+               
+                
+                int iddeals = Convert.ToInt32(list[0]);
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return iddeals;
+            }
+            else
+            {
+                int iddeals = 0;
+                return iddeals ;
+            }
+        }
+
 
         //Delete statement
         public void Delete()
@@ -160,7 +210,24 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT idclients, full_name FROM clients";
+            string query =
+@"select 
+deals.iddeals as 'ID', clients.full_name as 'Имя клиента',
+ managers.full_name as 'Имя менеджера', goods.good_name as 'Товар/услуга',
+deals.amount as 'Сумма сделки',
+payment.pay_date as 'Срок оплаты',
+pay_status.status_name as 'Статус оплаты',
+payment.pay_percent as 'Процент оплаты',
+deals.deals_name as 'Название сделки'
+ from deals
+join payment on payment.iddeals = deals.iddeals
+join pay_status on pay_status.idpay_status = payment.pay_status
+join client_managers on deals.idclient_managers = client_managers.idclient_managers
+join clients on client_managers.idclients = clients.idclients
+join managers on client_managers.idmanagers = managers.idmanagers
+join goods_in_deals on deals.iddeals = goods_in_deals.iddeals
+join goods on goods.idgoods = goods_in_deals.idgoods
+order by deals.iddeals;";
 
 
 
@@ -191,10 +258,11 @@ namespace _3_ModuleOne_Alpha
                 return null;
             }
         }
-        public int Select_last_client()
-        {
 
-            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
+        public List<string> Select_client_managers(int idclients)
+        {
+            string query = $"select idclient_managers from client_managers\r\nwhere idclients = {idclients};";
+
             List<string> list = new List<string>();
             list = new List<string>();
 
@@ -208,14 +276,11 @@ namespace _3_ModuleOne_Alpha
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    list.Add(dataReader["idclients"] + "");
+                    list.Add(dataReader["idclient_managers"] + "");
 
 
                 }
 
-
-
-                int iddeals = Convert.ToInt32(list[0]);
                 //close Data Reader
                 dataReader.Close();
 
@@ -223,55 +288,65 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
 
                 //return list to be displayed
-                return iddeals;
+                return list;
             }
             else
             {
-                int iddeals = 0;
-                return iddeals;
+                return list;
             }
         }
 
 
-        public string Select_2()
+
+        public string Select_pay_date(int iddeals)
         {
-            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
 
-
+            string query = $"SELECT pay_date FROM payment where iddeals = {iddeals}";
+            List<string> list = new List<string>();
+            list = new List<string>();
 
             //Open connection
             if (this.OpenConnection() == true)
             {
-                //Create Command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
 
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-                dataAdapter.SelectCommand = cmd;
-                DataSet dt = new DataSet();
-                dataAdapter.Fill(dt);
-                BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = dt;
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["pay_date"] + "");
+                }
 
+                try
+                {
+                string pay_date = Convert.ToString(list[0]);
+                //close Data Reader
+                dataReader.Close();
 
                 //close Connection
                 this.CloseConnection();
 
-                return dt.Tables[0].Rows[0].ToString();
-
-              //  return bindingSource;
-            }
-            else
-            {
-                // return list;
+                //return list to be displayed
+                return pay_date;
+                    //blah
+                }
+                catch { }
                 return null;
             }
+            else
+            {
+                string pay_date = "";
+                return pay_date;
+            }
         }
 
-        public List<string> Select_3(int idclients)
-        {
-            string query = $"SELECT full_name FROM clients where idclients = {idclients}";
 
+
+        public string Select_pay_status(int iddeals)
+        {
+
+            string query = $"SELECT pay_status FROM payment where iddeals = {iddeals}";
             List<string> list = new List<string>();
             list = new List<string>();
 
@@ -285,23 +360,29 @@ namespace _3_ModuleOne_Alpha
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    list.Add(dataReader["full_name"] + "");
-
-
+                    list.Add(dataReader["pay_status"] + "");
                 }
 
-                //close Data Reader
-                dataReader.Close();
+                try
+                {
+                    string pay_status = Convert.ToString(list[0]);
+                    //close Data Reader
+                    dataReader.Close();
 
-                //close Connection
-                this.CloseConnection();
+                    //close Connection
+                    this.CloseConnection();
 
-                //return list to be displayed
-                return list;
+                    //return list to be displayed
+                    return pay_status;
+                    //blah
+                }
+                catch { }
+                return null;
             }
             else
             {
-                return list;
+                string pay_status = "";
+                return pay_status;
             }
         }
 
@@ -309,7 +390,7 @@ namespace _3_ModuleOne_Alpha
         //Count statement
         public int Count()
         {
-            string query = "SELECT Count(*) FROM tableinfo";
+            string query = "SELECT Count(*) FROM deals";
             int Count = -1;
 
             //Open Connection

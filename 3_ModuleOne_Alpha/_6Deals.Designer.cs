@@ -60,6 +60,7 @@
             button3.TabIndex = 4;
             button3.Text = "Печать счёта на оплату";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button1
             // 
@@ -78,6 +79,7 @@
             button5.TabIndex = 6;
             button5.Text = "Форма оплаты";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button2
             // 
@@ -87,6 +89,7 @@
             button2.TabIndex = 3;
             button2.Text = "Добавить";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button4
             // 
@@ -99,10 +102,12 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 57);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(377, 255);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(1130, 255);
             dataGridView1.TabIndex = 10;
             // 
             // label1
@@ -119,12 +124,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1168, 450);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Name = "_6Deals";
             Text = " ";
+            Load += _6Deals_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

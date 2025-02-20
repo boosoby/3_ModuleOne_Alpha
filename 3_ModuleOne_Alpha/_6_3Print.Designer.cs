@@ -1,6 +1,6 @@
 ﻿namespace _3_ModuleOne_Alpha
 {
-    partial class _2Plan
+    partial class _6_3Print
     {
         /// <summary>
         /// Required designer variable.
@@ -28,85 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button3 = new Button();
-            button4 = new Button();
+            pictureBox1 = new PictureBox();
+            pictureBox2 = new PictureBox();
             dataGridView1 = new DataGridView();
+            button4 = new Button();
             label1 = new Label();
-            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // button3
+            // pictureBox1
             // 
-            button3.Location = new Point(91, 648);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 40;
-            button3.Text = "Назад";
-            button3.UseVisualStyleBackColor = true;
+            pictureBox1.Location = new Point(27, 116);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(120, 112);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
             // 
-            // button4
+            // pictureBox2
             // 
-            button4.Location = new Point(10, 648);
-            button4.Name = "button4";
-            button4.Size = new Size(75, 23);
-            button4.TabIndex = 39;
-            button4.Text = "Готово";
-            button4.UseVisualStyleBackColor = true;
+            pictureBox2.Location = new Point(27, 467);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(82, 81);
+            pictureBox2.TabIndex = 1;
+            pictureBox2.TabStop = false;
             // 
             // dataGridView1
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 90);
+            dataGridView1.Location = new Point(27, 234);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(684, 152);
-            dataGridView1.TabIndex = 35;
+            dataGridView1.Size = new Size(493, 227);
+            dataGridView1.TabIndex = 2;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(713, 615);
+            button4.Name = "button4";
+            button4.Size = new Size(75, 23);
+            button4.TabIndex = 42;
+            button4.Text = "Печать";
+            button4.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 24F);
-            label1.Location = new Point(12, 6);
+            label1.Location = new Point(27, 9);
             label1.Name = "label1";
-            label1.Size = new Size(217, 45);
-            label1.TabIndex = 34;
-            label1.Text = "План продаж";
+            label1.Size = new Size(238, 45);
+            label1.TabIndex = 41;
+            label1.Text = "Счёт на оплату";
             // 
-            // button1
-            // 
-            button1.Location = new Point(12, 258);
-            button1.Name = "button1";
-            button1.Size = new Size(221, 23);
-            button1.TabIndex = 49;
-            button1.Text = "Добавить новый план";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // _2Plan
+            // _6_3Print
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 671);
-            Controls.Add(button1);
-            Controls.Add(button3);
+            ClientSize = new Size(800, 650);
             Controls.Add(button4);
-            Controls.Add(dataGridView1);
             Controls.Add(label1);
-            Name = "_2Plan";
-            Text = "_2Plan";
-            Load += _2Plan_Load;
+            Controls.Add(dataGridView1);
+            Controls.Add(pictureBox2);
+            Controls.Add(pictureBox1);
+            Name = "_6_3Print";
+            Text = "_6_3Print";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private Button button3;
-        private Button button4;
+
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
         private DataGridView dataGridView1;
+        private Button button4;
         private Label label1;
-        private Button button1;
     }
 }

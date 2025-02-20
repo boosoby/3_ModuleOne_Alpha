@@ -7,21 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySqlX.XDevAPI;
 
 namespace _3_ModuleOne_Alpha
 {
-    public partial class _5Projects : Form
+    public partial class _1_2Contact_faces_Reg : Form
     {
-        public _5Projects()
+        public _1_2Contact_faces_Reg()
         {
             InitializeComponent();
         }
 
-        private void _5Projects_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            DB_5Projects dBCon = new DB_5Projects();
-
-            dataGridView1.DataSource = dBCon.Select();
+            DB_1_1Contact_faces dBinsert = new DB_1_1Contact_faces();
+            dBinsert.Insert(textBox1.Text, textBox2.Text, textBox3.Text);
+           
         }
     }
 }

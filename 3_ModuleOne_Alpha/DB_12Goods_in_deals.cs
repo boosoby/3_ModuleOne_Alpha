@@ -8,8 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace _3_ModuleOne_Alpha
 {
-    class DB_1Clients
-    {
+    class DB_12Goods_in_deals    {
         private MySqlConnection connection;
         private string server;
         private string database;
@@ -17,7 +16,7 @@ namespace _3_ModuleOne_Alpha
         private string password;
 
         //Constructor
-        public DB_1Clients()
+        public DB_12Goods_in_deals()
         {
             Initialize();
         }
@@ -84,9 +83,13 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string insert_string, int insert_int)
+        public void Insert(int quantity, int idgoods)
         {
-            string query = $"INSERT INTO clients (full_name, idcontact_face) VALUES('{insert_string}', {insert_int})";
+            var testList = new List<string>();
+            testList = Select_last_deal();
+            int iddeals = Convert.ToInt32(testList[0]);
+               
+            string query = $"INSERT INTO goods_in_deals (quantity, idgoods, iddeals) VALUES('{quantity}', {idgoods}, {iddeals})";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -104,7 +107,7 @@ namespace _3_ModuleOne_Alpha
         //Insert statement
         public void Insert_2(int insert_1, int insert_2)
         {
-            Select_2();
+          
             string query = $"INSERT INTO client_managers (idclients, idmanagers) VALUES('{insert_1}', {insert_2})";
 
             //open connection
@@ -158,9 +161,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Select statement
-        public BindingSource Select()
+        public BindingSource Select_goods()
         {
-            string query = "SELECT idclients, full_name FROM clients";
+            string query = "SELECT *  FROM goods";
 
 
 
@@ -191,10 +194,12 @@ namespace _3_ModuleOne_Alpha
                 return null;
             }
         }
-        public int Select_last_client()
-        {
 
-            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
+
+        public List<string> Select_last_deal()
+        {
+           
+            string query = "SELECT iddeals FROM deals ORDER BY iddeals desc limit 1";
             List<string> list = new List<string>();
             list = new List<string>();
 
@@ -208,84 +213,7 @@ namespace _3_ModuleOne_Alpha
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    list.Add(dataReader["idclients"] + "");
-
-
-                }
-
-
-
-                int iddeals = Convert.ToInt32(list[0]);
-                //close Data Reader
-                dataReader.Close();
-
-                //close Connection
-                this.CloseConnection();
-
-                //return list to be displayed
-                return iddeals;
-            }
-            else
-            {
-                int iddeals = 0;
-                return iddeals;
-            }
-        }
-
-
-        public string Select_2()
-        {
-            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
-
-
-
-            //Open connection
-            if (this.OpenConnection() == true)
-            {
-                //Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-
-                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
-                dataAdapter.SelectCommand = cmd;
-                DataSet dt = new DataSet();
-                dataAdapter.Fill(dt);
-                BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = dt;
-
-
-                //close Connection
-                this.CloseConnection();
-
-                return dt.Tables[0].Rows[0].ToString();
-
-              //  return bindingSource;
-            }
-            else
-            {
-                // return list;
-                return null;
-            }
-        }
-
-        public List<string> Select_3(int idclients)
-        {
-            string query = $"SELECT full_name FROM clients where idclients = {idclients}";
-
-            List<string> list = new List<string>();
-            list = new List<string>();
-
-            //Open connection
-            if (this.OpenConnection() == true)
-            {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                //Create a data reader and Execute the command
-                MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                //Read the data and store them in the list
-                while (dataReader.Read())
-                {
-                    list.Add(dataReader["full_name"] + "");
+                    list.Add(dataReader["iddeals"] + "");
 
 
                 }

@@ -53,10 +53,12 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 57);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(377, 255);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(684, 255);
             dataGridView1.TabIndex = 1;
             // 
             // button1
@@ -85,6 +87,7 @@
             button3.TabIndex = 4;
             button3.Text = "Подробнее";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -94,6 +97,7 @@
             button4.TabIndex = 5;
             button4.Text = "Добавить комментарий";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 

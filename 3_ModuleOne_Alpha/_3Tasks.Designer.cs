@@ -41,11 +41,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 122);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(513, 255);
+            dataGridView1.Size = new Size(1136, 339);
             dataGridView1.TabIndex = 3;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -102,18 +104,18 @@
             // 
             // button1
             // 
-            button1.Location = new Point(12, 383);
+            button1.Location = new Point(9, 490);
             button1.Name = "button1";
-            button1.Size = new Size(124, 23);
+            button1.Size = new Size(124, 25);
             button1.TabIndex = 8;
             button1.Text = "Добавить задачу";
             button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.Location = new Point(142, 383);
+            button2.Location = new Point(139, 490);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(75, 25);
             button2.TabIndex = 9;
             button2.Text = "Изменить";
             button2.UseVisualStyleBackColor = true;
@@ -122,7 +124,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1326, 662);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(radioButton3);
@@ -133,6 +135,7 @@
             Controls.Add(label1);
             Name = "_3Tasks";
             Text = "_3Tasks";
+            Load += _3Tasks_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

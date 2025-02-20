@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace _3_ModuleOne_Alpha
 {
-    public partial class _5Projects : Form
+    public partial class _6_3Print : Form
     {
-        public _5Projects()
+        public _6_3Print()
         {
             InitializeComponent();
-        }
-
-        private void _5Projects_Load(object sender, EventArgs e)
-        {
-            DB_5Projects dBCon = new DB_5Projects();
-
-            dataGridView1.DataSource = dBCon.Select();
         }
     }
 }
