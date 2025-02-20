@@ -103,7 +103,7 @@ namespace _3_ModuleOne_Alpha
 
                 //Execute command
                 cmd.ExecuteNonQuery();
-
+                //
                 //close connection
                 this.CloseConnection();
             }
@@ -211,19 +211,23 @@ namespace _3_ModuleOne_Alpha
         public BindingSource Select()
         {
             string query =
-@"SELECT deals.iddeals as 'ID', clients.full_name as 'Имя клиента', managers.full_name as 'Имя менеджера', goods.good_name as 'Товар/услуга',
+@"select 
+deals.iddeals as 'ID', clients.full_name as 'Имя клиента',
+ managers.full_name as 'Имя менеджера', goods.good_name as 'Товар/услуга',
 deals.amount as 'Сумма сделки',
 payment.pay_date as 'Срок оплаты',
 pay_status.status_name as 'Статус оплаты',
 payment.pay_percent as 'Процент оплаты',
 deals.deals_name as 'Название сделки'
- FROM goods_in_deals
-join deals on deals.iddeals = goods_in_deals.iddeals
-join clients on deals.idclient_managers = clients.idclients
-join managers on deals.idclient_managers = managers.idmanagers
-join payment on deals.iddeals = payment.iddeals
+ from deals
+join payment on payment.iddeals = deals.iddeals
 join pay_status on pay_status.idpay_status = payment.pay_status
-join goods on goods.idgoods = goods_in_deals.idgoods;";
+join client_managers on deals.idclient_managers = client_managers.idclient_managers
+join clients on client_managers.idclients = clients.idclients
+join managers on client_managers.idmanagers = managers.idmanagers
+join goods_in_deals on deals.iddeals = goods_in_deals.iddeals
+join goods on goods.idgoods = goods_in_deals.idgoods
+order by deals.iddeals;";
 
 
 
@@ -337,6 +341,50 @@ join goods on goods.idgoods = goods_in_deals.idgoods;";
             }
         }
 
+
+
+        public string Select_pay_status(int iddeals)
+        {
+
+            string query = $"SELECT pay_status FROM payment where iddeals = {iddeals}";
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["pay_status"] + "");
+                }
+
+                try
+                {
+                    string pay_status = Convert.ToString(list[0]);
+                    //close Data Reader
+                    dataReader.Close();
+
+                    //close Connection
+                    this.CloseConnection();
+
+                    //return list to be displayed
+                    return pay_status;
+                    //blah
+                }
+                catch { }
+                return null;
+            }
+            else
+            {
+                string pay_status = "";
+                return pay_status;
+            }
+        }
 
 
         //Count statement

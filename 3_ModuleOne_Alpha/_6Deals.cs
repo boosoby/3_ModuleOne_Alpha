@@ -21,6 +21,7 @@ namespace _3_ModuleOne_Alpha
         private void _6Deals_Load(object sender, EventArgs e)
         {
             DB_6Deals dBCon = new DB_6Deals();
+            DB_6Deals dBCon2 = new DB_6Deals();
          
             
 
@@ -29,10 +30,11 @@ namespace _3_ModuleOne_Alpha
             {
                 int iddeals = Convert.ToInt32(row.Cells[0].Value);
                 string pay_date = dBCon.Select_pay_date(iddeals);
+                int pay_status =Convert.ToInt32(dBCon2.Select_pay_status(iddeals));
                 try
                 {
                     DateTime datetime_date = DateTime.ParseExact(pay_date, "dd.MM.yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                    if (DateTime.Today > datetime_date)
+                    if ((DateTime.Now > datetime_date)&& pay_status==2)
 
                     {
                         row.DefaultCellStyle.BackColor = Color.Red;
