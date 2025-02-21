@@ -86,14 +86,14 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string date, int amount, int iddeal_status, int idclients, string deals_name)
+        public void Insert(string date, int amount, int iddeal_status, int idclients, string deals_name, string pay_date)
         {
             
            
             var testList = new List<string>();
             testList = Select_client_managers(idclients);
             string idclient_managers = testList[0];
-            string query = $"insert into deals (date, amount, iddeal_status, idclient_managers, deals_name)\r\nvalues ('{date}','{amount}','{iddeal_status}','{idclient_managers}', '{deals_name}');";
+            string query = $"insert into deals (date, amount, iddeal_status, idclient_managers, deals_name, pay_date, idpay_status)\r\nvalues ('{date}','{amount}','{iddeal_status}','{idclient_managers}', '{deals_name}', '{pay_date}', 2);";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -220,7 +220,7 @@ pay_status.status_name as 'Статус оплаты',
 deals.deals_percent as 'Процент оплаты',
 deals.deals_name as 'Название сделки'
  from deals
-join pay_status on pay_status.idpay_status = deals.idpay_status
+left join pay_status on pay_status.idpay_status = deals.idpay_status
 join client_managers on deals.idclient_managers = client_managers.idclient_managers
 join clients on client_managers.idclients = clients.idclients
 join managers on client_managers.idmanagers = managers.idmanagers

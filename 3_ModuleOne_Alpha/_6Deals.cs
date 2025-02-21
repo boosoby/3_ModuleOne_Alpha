@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,8 +34,11 @@ namespace _3_ModuleOne_Alpha
                 int pay_status =Convert.ToInt32(dBCon2.Select_pay_status(iddeals));
                 try
                 {
-                    DateTime datetime_date = DateTime.ParseExact(pay_date, "dd.MM.yyyy HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture);
-                    if ((DateTime.Now > datetime_date)&& pay_status==2)
+                    DateTime time;
+                    string mySqlTimestamp = pay_date;
+                    time = DateTime.Parse(mySqlTimestamp);
+                    //DateTime datetime_date = DateTime.ParseExact(pay_date, "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                    if ((DateTime.Now > time)&& pay_status==2)
 
                     {
                         row.DefaultCellStyle.BackColor = Color.Red;

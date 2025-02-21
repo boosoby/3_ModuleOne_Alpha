@@ -66,16 +66,15 @@ namespace _3_ModuleOne_Alpha
 
             }
             string deals_name = textBox2.Text;
-
+            string pay_date = dateTimePicker2.Value.ToString("yyyy'-'MM'-'dd HH':'mm':'ss");
             DB_6Deals dB_6Deals = new DB_6Deals();
-            dB_6Deals.Insert(date, amount, iddeal_status, idclient_managers, deals_name);
+            dB_6Deals.Insert(date, amount, iddeal_status, idclient_managers, deals_name, pay_date);
             DB_12Goods_in_deals dB_12Goods_In_Deals = new DB_12Goods_in_deals();
             int quantity = Convert.ToInt32(textBox3.Text);
             dB_12Goods_In_Deals.Insert(quantity, idgoods);
 
-            string pay_date = dateTimePicker2.Value.ToString("yyyy'-'MM'-'dd HH':'mm':'ss");
             DB_6Deals payment = new DB_6Deals();
-            payment.Insert_payment_deal(pay_date,pay_status);
+           // payment.Insert_payment_deal(pay_date,pay_status);
             //(string date, int amount, int iddeal_status, int idclient_managers)
         }
 
