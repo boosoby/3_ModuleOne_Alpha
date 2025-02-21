@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_6_3Print));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             dataGridView1 = new DataGridView();
             button4 = new Button();
             label1 = new Label();
+            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printPreviewDialog1 = new PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -40,17 +43,19 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = Properties.Resources.IMG_9524;
             pictureBox1.Location = new Point(27, 116);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(120, 112);
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // pictureBox2
             // 
             pictureBox2.Location = new Point(27, 467);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(82, 81);
+            pictureBox2.Size = new Size(131, 122);
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
@@ -70,6 +75,7 @@
             button4.TabIndex = 42;
             button4.Text = "Печать";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label1
             // 
@@ -80,6 +86,21 @@
             label1.Size = new Size(238, 45);
             label1.TabIndex = 41;
             label1.Text = "Счёт на оплату";
+            // 
+            // printDocument1
+            // 
+            printDocument1.PrintPage += printDocument1_PrintPage;
+            // 
+            // printPreviewDialog1
+            // 
+            printPreviewDialog1.AutoScrollMargin = new Size(0, 0);
+            printPreviewDialog1.AutoScrollMinSize = new Size(0, 0);
+            printPreviewDialog1.ClientSize = new Size(400, 300);
+            printPreviewDialog1.Document = printDocument1;
+            printPreviewDialog1.Enabled = true;
+            printPreviewDialog1.Icon = (Icon)resources.GetObject("printPreviewDialog1.Icon");
+            printPreviewDialog1.Name = "printPreviewDialog1";
+            printPreviewDialog1.Visible = false;
             // 
             // _6_3Print
             // 
@@ -93,6 +114,7 @@
             Controls.Add(pictureBox1);
             Name = "_6_3Print";
             Text = "_6_3Print";
+            Load += _6_3Print_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -107,5 +129,7 @@
         private DataGridView dataGridView1;
         private Button button4;
         private Label label1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintPreviewDialog printPreviewDialog1;
     }
 }
