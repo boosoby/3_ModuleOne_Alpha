@@ -78,7 +78,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(91, 377);
+            button3.Location = new Point(88, 457);
             button3.Name = "button3";
             button3.Size = new Size(75, 23);
             button3.TabIndex = 41;
@@ -88,12 +88,13 @@
             // 
             // button4
             // 
-            button4.Location = new Point(10, 377);
+            button4.Location = new Point(7, 457);
             button4.Name = "button4";
             button4.Size = new Size(75, 23);
             button4.TabIndex = 40;
             button4.Text = "Готово";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label4
             // 
@@ -114,7 +115,7 @@
             // 
             // dataGridView1
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 118);
             dataGridView1.Name = "dataGridView1";

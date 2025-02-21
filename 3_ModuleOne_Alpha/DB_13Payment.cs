@@ -4,13 +4,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace _3_ModuleOne_Alpha
 {
-    class DB_6Deals
+    internal class DB_13Payment
     {
         private MySqlConnection connection;
         private string server;
@@ -19,7 +17,7 @@ namespace _3_ModuleOne_Alpha
         private string password;
 
         //Constructor
-        public DB_6Deals()
+        public DB_13Payment()
         {
             Initialize();
         }
@@ -86,14 +84,13 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string date, int amount, int iddeal_status, int idclients, string deals_name)
+        public void Insert(string pay_date, int pay_amount, int pay_percent, int pay_status, int iddeals, string payment_name)
         {
-            
-           
-            var testList = new List<string>();
-            testList = Select_client_managers(idclients);
-            string idclient_managers = testList[0];
-            string query = $"insert into deals (date, amount, iddeal_status, idclient_managers, deals_name)\r\nvalues ('{date}','{amount}','{iddeal_status}','{idclient_managers}', '{deals_name}');";
+
+
+        
+         
+            string query = $"insert into payment (pay_date, pay_amount, pay_percent, pay_status, iddeals, payment_name)\r\nvalues ('{pay_date}','{pay_amount}','{pay_percent}','{pay_status}', '{iddeals}', '{payment_name}');";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -114,7 +111,7 @@ namespace _3_ModuleOne_Alpha
 
 
             int iddeals = Select_last_deal();
-            
+
             string query = $"insert into payment (pay_date, pay_status, iddeals) values ('{pay_date}','{pay_status}','{iddeals}');";
 
             //open connection
@@ -130,10 +127,21 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
             }
         }
-        //Update statement
-        public void Update()
+        public void Update_percent(int pay_percent, int iddeals)
         {
-            string query = "UPDATE tableinfo SET name='Joe', age='22' WHERE name='John Smith'";
+            string query = @$"UPDATE deals
+SET deals_percent =
+CASE when deals_percent is null then {pay_percent}
+when deals_percent >=100 then 100
+when deals_percent <=100 then 
+case when {pay_percent} + deals_percent >= 100 then 100
+else deals_percent + {pay_percent}
+end 
+END
+where iddeals = {iddeals}
+
+
+";
 
             //Open connection
             if (this.OpenConnection() == true)
@@ -152,6 +160,39 @@ namespace _3_ModuleOne_Alpha
                 this.CloseConnection();
             }
         }
+
+
+        //Update statement
+        public void Update_status()
+        {
+            string query = @$"UPDATE deals
+SET idpay_status =
+CASE WHEN deals_percent >= 100 THEN 1
+ELSE 2
+END
+
+
+
+";
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+                //Assign the query using CommandText
+                cmd.CommandText = query;
+                //Assign the connection using Connection
+                cmd.Connection = connection;
+
+                //Execute query
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+
         public int Select_last_deal()
         {
 
@@ -174,8 +215,8 @@ namespace _3_ModuleOne_Alpha
 
                 }
 
-               
-                
+
+
                 int iddeals = Convert.ToInt32(list[0]);
                 //close Data Reader
                 dataReader.Close();
@@ -189,7 +230,7 @@ namespace _3_ModuleOne_Alpha
             else
             {
                 int iddeals = 0;
-                return iddeals ;
+                return iddeals;
             }
         }
 
@@ -300,7 +341,7 @@ order by deals.iddeals;";
         public string Select_pay_date(int iddeals)
         {
 
-            string query = $"SELECT pay_date FROM deals where iddeals = {iddeals}";
+            string query = $"SELECT pay_date FROM payment where iddeals = {iddeals}";
             List<string> list = new List<string>();
             list = new List<string>();
 
@@ -319,15 +360,15 @@ order by deals.iddeals;";
 
                 try
                 {
-                string pay_date = Convert.ToString(list[0]);
-                //close Data Reader
-                dataReader.Close();
+                    string pay_date = Convert.ToString(list[0]);
+                    //close Data Reader
+                    dataReader.Close();
 
-                //close Connection
-                this.CloseConnection();
+                    //close Connection
+                    this.CloseConnection();
 
-                //return list to be displayed
-                return pay_date;
+                    //return list to be displayed
+                    return pay_date;
                     //blah
                 }
                 catch { }
@@ -345,7 +386,7 @@ order by deals.iddeals;";
         public string Select_pay_status(int iddeals)
         {
 
-            string query = $"SELECT idpay_status FROM deals where iddeals = {iddeals}";
+            string query = $"SELECT pay_status FROM payment where iddeals = {iddeals}";
             List<string> list = new List<string>();
             list = new List<string>();
 
@@ -359,7 +400,7 @@ order by deals.iddeals;";
                 //Read the data and store them in the list
                 while (dataReader.Read())
                 {
-                    list.Add(dataReader["idpay_status"] + "");
+                    list.Add(dataReader["pay_status"] + "");
                 }
 
                 try
