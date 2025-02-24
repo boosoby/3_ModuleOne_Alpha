@@ -38,7 +38,7 @@ namespace _3_ModuleOne_Alpha
         {
             DB_6Deals dB_6Deals = new DB_6Deals();
 
-            dataGridView1.DataSource = dB_6Deals.Select();
+            dataGridView1.DataSource = dB_6Deals.Select_goods_in_d();
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)

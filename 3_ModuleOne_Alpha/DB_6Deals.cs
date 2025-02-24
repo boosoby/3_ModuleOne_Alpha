@@ -384,6 +384,46 @@ order by deals.iddeals;";
                 return pay_status;
             }
         }
+        public BindingSource Select_goods_in_d()
+        {
+            string query =
+@"select deals.date as 'Дата сделки',
+ quantity as 'Количество',
+ good_name as 'Название товара', 
+ price as 'Цена товара',
+ amount as 'Сумма' from goods_in_deals
+join goods on goods.idgoods = goods_in_deals.idgoods
+join deals on deals.iddeals = goods_in_deals.iddeals;";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
 
 
         //Count statement
