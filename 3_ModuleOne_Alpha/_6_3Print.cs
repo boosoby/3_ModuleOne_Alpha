@@ -14,9 +14,11 @@ namespace _3_ModuleOne_Alpha
 {
     public partial class _6_3Print : Form
     {
-        public _6_3Print()
+        public _6_3Print(int iddeals)
         {
             InitializeComponent();
+            DB_6Deals dB_6Deals = new DB_6Deals();
+            dataGridView1.DataSource = dB_6Deals.Select_goods_in_d(iddeals);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -36,9 +38,7 @@ namespace _3_ModuleOne_Alpha
 
         private void _6_3Print_Load(object sender, EventArgs e)
         {
-            DB_6Deals dB_6Deals = new DB_6Deals();
 
-            dataGridView1.DataSource = dB_6Deals.Select_goods_in_d();
 
             pictureBox1.ImageLocation = Path.Combine(@"~\imagelogo.jpg");
             pictureBox2.ImageLocation = Path.Combine(@"~\imagesignature.jpg");

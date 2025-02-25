@@ -384,16 +384,19 @@ order by deals.iddeals;";
                 return pay_status;
             }
         }
-        public BindingSource Select_goods_in_d()
+        public BindingSource Select_goods_in_d(int iddeals)
         {
             string query =
-@"select deals.date as 'Дата сделки',
+@$"select deals.iddeals as 'ID', 
+deals.date as 'Дата сделки',
  quantity as 'Количество',
  good_name as 'Название товара', 
  price as 'Цена товара',
- amount as 'Сумма' from goods_in_deals
+ amount as 'Итоговая сумма' from goods_in_deals
 join goods on goods.idgoods = goods_in_deals.idgoods
-join deals on deals.iddeals = goods_in_deals.iddeals;";
+join deals on deals.iddeals = goods_in_deals.iddeals
+where deals.iddeals = {iddeals}
+order by deals.iddeals;";
 
 
 

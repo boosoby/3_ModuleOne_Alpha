@@ -18,18 +18,18 @@ namespace _3_ModuleOne_Alpha
         {
             InitializeComponent();
         }
+         public int iddeals = 0;
 
         private void _6Deals_Load(object sender, EventArgs e)
         {
             DB_6Deals dBCon = new DB_6Deals();
             DB_6Deals dBCon2 = new DB_6Deals();
-         
-            
+           
 
             dataGridView1.DataSource = dBCon.Select();
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                int iddeals = Convert.ToInt32(row.Cells[0].Value);
+                iddeals = Convert.ToInt32(row.Cells[0].Value);
                 string pay_date = dBCon.Select_pay_date(iddeals);
                 int pay_status =Convert.ToInt32(dBCon2.Select_pay_status(iddeals));
                 try
@@ -61,9 +61,13 @@ namespace _3_ModuleOne_Alpha
             formLogIn.ShowDialog();
         }
 
+       
+
+
         private void button3_Click(object sender, EventArgs e)
         {
-            _6_3Print formLogIn = new _6_3Print(); //FormLogIn — имя формы, которую хотим открыть
+            
+            _6_3Print formLogIn = new _6_3Print(iddeals); //FormLogIn — имя формы, которую хотим открыть
             formLogIn.ShowDialog();
         }
     }
