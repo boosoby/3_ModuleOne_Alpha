@@ -43,10 +43,10 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.IMG_9524;
             pictureBox1.Location = new Point(27, 116);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(120, 112);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -56,6 +56,7 @@
             pictureBox2.Location = new Point(27, 467);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(131, 122);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 

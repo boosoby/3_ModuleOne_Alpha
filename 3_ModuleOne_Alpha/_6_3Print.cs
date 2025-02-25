@@ -39,6 +39,9 @@ namespace _3_ModuleOne_Alpha
             DB_6Deals dB_6Deals = new DB_6Deals();
 
             dataGridView1.DataSource = dB_6Deals.Select_goods_in_d();
+
+            pictureBox1.ImageLocation = Path.Combine(@"~\imagelogo.jpg");
+            pictureBox2.ImageLocation = Path.Combine(@"~\imagesignature.jpg");
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
