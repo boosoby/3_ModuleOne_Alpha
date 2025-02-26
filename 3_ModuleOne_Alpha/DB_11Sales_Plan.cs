@@ -84,9 +84,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string insert_string, int insert_int)
+        public void Insert_plan(string start_date, int amount, int idmanagers)
         {
-            string query = $"INSERT INTO clients (full_name, idcontact_face) VALUES('{insert_string}', {insert_int})";
+            string query = $"INSERT INTO `sales_plan` (`start_date`, `end_date`, `amount`, `idmanagers`) VALUES ('{start_date}', '2025-02-10 10:00:00', {amount}, {idmanagers});";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -160,7 +160,7 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT * FROM sales_plan";
+            string query = "SELECT idsales_plan as 'ID', start_date as 'Начальная дата', amount as 'Сумма', full_name as 'ФИО менеджера' FROM sales_plan\r\njoin managers on sales_plan.idmanagers = managers.idmanagers;";
 
 
 

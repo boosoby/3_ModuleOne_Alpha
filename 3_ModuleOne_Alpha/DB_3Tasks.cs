@@ -84,9 +84,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert()
+        public void Insert(string text, int idprojects, int idclientmanagers)
         {
-            string query = "INSERT INTO tableinfo (name, age) VALUES('John Smith', '33')";
+            string query = $"INSERT INTO `tasks` (`text`, `idprojects`, `idtask_priorities`, `idtask_status`, `start_date`, `end_date`, `plan_end`, `idclient_managers`) VALUES ('{text}', {idprojects}, '1', '1', '2025-01-10 10:00:00', '2025-01-10 10:00:00', '2025-01-10 18:00:00', {idclientmanagers});\r\n";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -141,7 +141,7 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT * FROM tasks";
+            string query = "SELECT idtasks as 'ID', text as 'Название задачи', projects.project_name as 'Проект', clients.full_name as'Клиент' FROM tasks\r\njoin projects on projects.idprojects = tasks.idtasks\r\njoin client_managers on client_managers.idclients = tasks.idclient_managers\r\njoin clients on clients.idclients = client_managers.idclients;";
 
 
 

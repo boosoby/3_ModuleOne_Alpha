@@ -28,25 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            radioButton3 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
             label2 = new Label();
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            dataGridView2 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(107, 120);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(64, 19);
-            radioButton3.TabIndex = 13;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Клиент";
-            radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
@@ -83,9 +73,9 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 179);
+            dataGridView1.Location = new Point(197, 72);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(1115, 312);
+            dataGridView1.Size = new Size(958, 171);
             dataGridView1.TabIndex = 9;
             // 
             // label1
@@ -98,12 +88,20 @@
             label1.TabIndex = 8;
             label1.Text = "Рабочее время сотрудников";
             // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(40, 294);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.Size = new Size(1115, 312);
+            dataGridView2.TabIndex = 13;
+            // 
             // _4Worktime
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1195, 618);
-            Controls.Add(radioButton3);
+            Controls.Add(dataGridView2);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(label2);
@@ -113,17 +111,17 @@
             Text = "_4Worktime";
             Load += _4Worktime_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private RadioButton radioButton3;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Label label2;
         private DataGridView dataGridView1;
         private Label label1;
+        private DataGridView dataGridView2;
     }
 }

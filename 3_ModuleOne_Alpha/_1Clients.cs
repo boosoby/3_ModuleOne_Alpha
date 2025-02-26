@@ -44,7 +44,7 @@ namespace _3_ModuleOne_Alpha
         }
 
         string client_id;
-            int idclient;
+        int idclient;
         private void button3_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow Rows in this.dataGridView1.Rows)
@@ -53,7 +53,7 @@ namespace _3_ModuleOne_Alpha
                 if (Rows.Selected)
                 {
 
-                  
+
                     client_id = Rows.Cells[0].Value.ToString();
                     DB_1Clients dBinsert = new DB_1Clients();
                     idclient = Convert.ToInt32(client_id);
@@ -65,6 +65,12 @@ namespace _3_ModuleOne_Alpha
 
             }
             _1_4More formLogIn = new _1_4More(idclient); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            _1_3_View_Com formLogIn = new _1_3_View_Com(); //FormLogIn — имя формы, которую хотим открыть
             formLogIn.ShowDialog();
         }
     }

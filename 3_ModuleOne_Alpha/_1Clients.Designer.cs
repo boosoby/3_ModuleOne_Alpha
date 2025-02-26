@@ -37,6 +37,7 @@
             button5 = new Button();
             button6 = new Button();
             panel1 = new Panel();
+            button7 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -120,6 +121,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button7);
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button6);
             panel1.Controls.Add(button1);
@@ -130,6 +132,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(402, 97);
             panel1.TabIndex = 8;
+            // 
+            // button7
+            // 
+            button7.Location = new Point(181, 61);
+            button7.Name = "button7";
+            button7.Size = new Size(173, 23);
+            button7.TabIndex = 8;
+            button7.Text = "Посмотреть комментарии";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // _1Clients
             // 
@@ -159,5 +171,6 @@
         private Button button5;
         private Button button6;
         private Panel panel1;
+        private Button button7;
     }
 }

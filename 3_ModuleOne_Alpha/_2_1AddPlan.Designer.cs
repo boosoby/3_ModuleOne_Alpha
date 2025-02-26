@@ -79,7 +79,7 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(124, 297);
+            dateTimePicker1.Location = new Point(124, 300);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(261, 23);
             dateTimePicker1.TabIndex = 53;
@@ -138,6 +138,7 @@
             button4.TabIndex = 57;
             button4.Text = "Готово";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // label2
             // 
