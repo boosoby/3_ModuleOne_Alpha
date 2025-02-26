@@ -6,9 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace _3_ModuleOne_Alpha
+namespace DemoTasks
 {
-    class DB_5Projects
+
+    class DB
     {
         private MySqlConnection connection;
         private string server;
@@ -17,7 +18,7 @@ namespace _3_ModuleOne_Alpha
         private string password;
 
         //Constructor
-        public DB_5Projects()
+        public DB()
         {
             Initialize();
         }
@@ -84,9 +85,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(int idclient_managers, string project_name)
+        public void Insert(string full_name, string contact_data, string job)
         {
-            string query = $"INSERT INTO projects (`start_date`, `end_date`, `idproject_status`, `idclient_managers`, `project_name`) VALUES ('2025-01-10 10:00:00', '2025-02-10 10:00:00', '1', '{idclient_managers}', '{project_name}');";
+            string query = $"INSERT INTO contact_faces (full_name, contact_data, job) VALUES('{full_name}', {contact_data}, {job})";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -128,7 +129,7 @@ namespace _3_ModuleOne_Alpha
         //Delete statement
         public void Delete()
         {
-            string query = "DELETE FROM tableinfo WHERE name='John Smith'";
+            string query = "DELETE FROM clients WHERE idcontact_face=3";
 
             if (this.OpenConnection() == true)
             {
@@ -141,7 +142,7 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT * FROM projects";
+            string query = "SELECT idmanagers, full_name FROM managers";
 
 
 
@@ -173,10 +174,10 @@ namespace _3_ModuleOne_Alpha
             }
         }
         //Count statement
-        public int Count()
+        public string Count(int idclient_managers )
         {
-            string query = "SELECT Count(*) FROM tableinfo";
-            int Count = -1;
+            string query = $"select full_name from client_managers\r\njoin managers on managers.idmanagers = client_managers.idmanagers\r\nwhere idclients = {idclient_managers};";
+            string Count = "";
 
             //Open Connection
             if (this.OpenConnection() == true)
@@ -185,7 +186,7 @@ namespace _3_ModuleOne_Alpha
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
                 //ExecuteScalar will return one value
-                Count = int.Parse(cmd.ExecuteScalar() + "");
+                Count = Convert.ToString(cmd.ExecuteScalar() + "");
 
                 //close Connection
                 this.CloseConnection();

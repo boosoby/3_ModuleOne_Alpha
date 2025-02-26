@@ -74,5 +74,10 @@
             _11DealAnalysis formLogIn = new _11DealAnalysis(); //FormLogIn — имя формы, которую хотим открыть
             formLogIn.ShowDialog();
         }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

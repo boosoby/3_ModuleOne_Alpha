@@ -23,5 +23,11 @@ namespace _3_ModuleOne_Alpha
 
             dataGridView1.DataSource = dBCon.Select();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _5_1NewProject newProject = new _5_1NewProject();
+          newProject.ShowDialog();
+        }
     }
 }

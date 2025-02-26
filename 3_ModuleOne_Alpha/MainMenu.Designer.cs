@@ -68,14 +68,14 @@
             panel1.Controls.Add(button1Clients);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(400, 203);
+            panel1.Size = new Size(400, 165);
             panel1.TabIndex = 1;
             // 
             // button11DealAnalysis
             // 
             button11DealAnalysis.Location = new Point(151, 119);
             button11DealAnalysis.Name = "button11DealAnalysis";
-            button11DealAnalysis.Size = new Size(182, 23);
+            button11DealAnalysis.Size = new Size(246, 23);
             button11DealAnalysis.TabIndex = 10;
             button11DealAnalysis.Text = "Анализ сделок и клиентов";
             button11DealAnalysis.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             // 
             button9Settings.Location = new Point(165, 90);
             button9Settings.Name = "button9Settings";
-            button9Settings.Size = new Size(75, 23);
+            button9Settings.Size = new Size(232, 23);
             button9Settings.TabIndex = 8;
             button9Settings.Text = "Настройки";
             button9Settings.UseVisualStyleBackColor = true;
@@ -115,7 +115,7 @@
             // 
             button7Efficiency.Location = new Point(84, 61);
             button7Efficiency.Name = "button7Efficiency";
-            button7Efficiency.Size = new Size(167, 23);
+            button7Efficiency.Size = new Size(313, 23);
             button7Efficiency.TabIndex = 6;
             button7Efficiency.Text = "Отчёт по эффективности";
             button7Efficiency.UseVisualStyleBackColor = true;
@@ -135,7 +135,7 @@
             // 
             button5Projects.Location = new Point(215, 32);
             button5Projects.Name = "button5Projects";
-            button5Projects.Size = new Size(75, 23);
+            button5Projects.Size = new Size(182, 23);
             button5Projects.TabIndex = 4;
             button5Projects.Text = "Проекты";
             button5Projects.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@
             // 
             button3Tasks.Location = new Point(162, 3);
             button3Tasks.Name = "button3Tasks";
-            button3Tasks.Size = new Size(75, 23);
+            button3Tasks.Size = new Size(235, 23);
             button3Tasks.TabIndex = 2;
             button3Tasks.Text = "Задачи";
             button3Tasks.UseVisualStyleBackColor = true;
@@ -175,10 +175,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(554, 257);
             Controls.Add(panel1);
             Name = "MainMenu";
-            Text = "Menu";
+            Text = "Главное меню";
+            Load += MainMenu_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

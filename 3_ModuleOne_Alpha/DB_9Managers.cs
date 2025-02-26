@@ -142,7 +142,7 @@ namespace _3_ModuleOne_Alpha
         //Select statement
         public BindingSource Select()
         {
-            string query = "SELECT idmanagers, full_name FROM managers";
+            string query = "SELECT idmanagers as 'ID', full_name as 'ФИО менеджера' FROM managers";
 
 
 
@@ -187,6 +187,30 @@ namespace _3_ModuleOne_Alpha
 
                 //ExecuteScalar will return one value
                 Count = int.Parse(cmd.ExecuteScalar() + "");
+
+                //close Connection
+                this.CloseConnection();
+
+                return Count;
+            }
+            else
+            {
+                return Count;
+            }
+        }
+        public string Select_fn(int idclient_managers)
+        {
+            string query = $"select full_name from client_managers\r\njoin managers on managers.idmanagers = client_managers.idmanagers\r\nwhere idclients = {idclient_managers};";
+            string Count = "";
+
+            //Open Connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Mysql Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //ExecuteScalar will return one value
+                Count = Convert.ToString(cmd.ExecuteScalar() + "");
 
                 //close Connection
                 this.CloseConnection();
