@@ -218,7 +218,8 @@ deals.amount as 'Сумма сделки',
 deals.pay_date as 'Срок оплаты',
 pay_status.status_name as 'Статус оплаты',
 deals.deals_percent as 'Процент оплаты',
-deals.deals_name as 'Название сделки'
+deals.deals_name as 'Название сделки',
+clients.idclients as 'ID клиента'
  from deals
 left join pay_status on pay_status.idpay_status = deals.idpay_status
 join client_managers on deals.idclient_managers = client_managers.idclient_managers
@@ -396,7 +397,7 @@ deals.date as 'Дата сделки',
 join goods on goods.idgoods = goods_in_deals.idgoods
 join deals on deals.iddeals = goods_in_deals.iddeals
 where deals.iddeals = {iddeals}
-order by deals.iddeals;";
+order by deals.amount;";
 
 
 

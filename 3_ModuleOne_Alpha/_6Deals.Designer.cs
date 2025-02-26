@@ -30,12 +30,13 @@
         {
             panel1 = new Panel();
             button3 = new Button();
-            button1 = new Button();
             button5 = new Button();
             button2 = new Button();
-            button4 = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -43,10 +44,8 @@
             // panel1
             // 
             panel1.Controls.Add(button3);
-            panel1.Controls.Add(button1);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(button2);
-            panel1.Controls.Add(button4);
             panel1.Location = new Point(12, 318);
             panel1.Name = "panel1";
             panel1.Size = new Size(377, 63);
@@ -54,7 +53,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(164, 3);
+            button3.Location = new Point(84, 3);
             button3.Name = "button3";
             button3.Size = new Size(183, 23);
             button3.TabIndex = 4;
@@ -62,18 +61,9 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // button1
-            // 
-            button1.Location = new Point(2, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "Изменить";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // button5
             // 
-            button5.Location = new Point(164, 32);
+            button5.Location = new Point(3, 32);
             button5.Name = "button5";
             button5.Size = new Size(183, 23);
             button5.TabIndex = 6;
@@ -83,22 +73,13 @@
             // 
             // button2
             // 
-            button2.Location = new Point(83, 3);
+            button2.Location = new Point(3, 3);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 3;
             button2.Text = "Добавить";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(2, 32);
-            button4.Name = "button4";
-            button4.Size = new Size(156, 23);
-            button4.TabIndex = 5;
-            button4.Text = "Экспорт файла";
-            button4.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -120,11 +101,42 @@
             label1.TabIndex = 9;
             label1.Text = "Сделки";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(549, 318);
+            label2.Name = "label2";
+            label2.Size = new Size(134, 15);
+            label2.TabIndex = 12;
+            label2.Text = "Рискованные клиенты:";
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(689, 318);
+            label3.Name = "label3";
+            label3.Size = new Size(15, 15);
+            label3.TabIndex = 13;
+            label3.Text = "- ";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(446, 333);
+            label4.Name = "label4";
+            label4.Size = new Size(245, 15);
+            label4.TabIndex = 14;
+            label4.Text = "(Сортировка проводится по сумме сделки)";
+            // 
             // _6Deals
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1168, 450);
+            ClientSize = new Size(1168, 589);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
@@ -141,11 +153,12 @@
 
         private Panel panel1;
         private Button button3;
-        private Button button1;
         private Button button5;
         private Button button2;
-        private Button button4;
         private DataGridView dataGridView1;
         private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
     }
 }

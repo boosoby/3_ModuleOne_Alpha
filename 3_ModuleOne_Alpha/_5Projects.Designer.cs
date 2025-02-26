@@ -28,24 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button2 = new Button();
             button1 = new Button();
             dataGridView1 = new DataGridView();
             label1 = new Label();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // button2
-            // 
-            button2.Location = new Point(142, 383);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 13;
-            button2.Text = "Окончен";
-            button2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -76,42 +63,11 @@
             label1.TabIndex = 10;
             label1.Text = "Проекты";
             // 
-            // button3
-            // 
-            button3.Location = new Point(223, 383);
-            button3.Name = "button3";
-            button3.Size = new Size(141, 23);
-            button3.TabIndex = 14;
-            button3.Text = "В процессе";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(370, 383);
-            button4.Name = "button4";
-            button4.Size = new Size(141, 23);
-            button4.TabIndex = 15;
-            button4.Text = "Окончен";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(517, 383);
-            button5.Name = "button5";
-            button5.Size = new Size(141, 23);
-            button5.TabIndex = 16;
-            button5.Text = "Отменен";
-            button5.UseVisualStyleBackColor = true;
-            // 
             // _5Projects
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1209, 450);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
@@ -124,13 +80,8 @@
         }
 
         #endregion
-
-        private Button button2;
         private Button button1;
         private DataGridView dataGridView1;
         private Label label1;
-        private Button button3;
-        private Button button4;
-        private Button button5;
     }
 }

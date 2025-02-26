@@ -191,6 +191,105 @@ namespace _3_ModuleOne_Alpha
                 return null;
             }
         }
+        public BindingSource Select_phone()
+        {
+            string query = "use firstmodule2;\r\nSELECT\r\n  phone, COUNT(*)\r\nFROM\r\n    clients\r\nGROUP BY\r\n   phone\r\nHAVING \r\n    COUNT(*) > 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+        public BindingSource Select_name()
+        {
+            string query = "use firstmodule2;\r\nSELECT\r\n  full_name, COUNT(*)\r\nFROM\r\n    clients\r\nGROUP BY\r\n   full_name\r\nHAVING \r\n    COUNT(*) > 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+        public BindingSource Select_email()
+        {
+            string query = "SELECT\r\n  email, COUNT(*)\r\nFROM\r\n    clients\r\nGROUP BY\r\n   email\r\nHAVING \r\n    COUNT(*) > 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
         public int Select_last_client()
         {
 
@@ -231,7 +330,42 @@ namespace _3_ModuleOne_Alpha
                 return iddeals;
             }
         }
+        public string Select_client_name(int idclients)
+        {
+            string full_name = "";
+            string query = $"SELECT full_name FROM clients where idclients= {idclients};";
+            List<string> list = new List<string>();
+            list = new List<string>();
 
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["full_name"] + "");
+
+
+                }
+                full_name = Convert.ToString(list[0]);
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return full_name;
+            }
+            else
+            {
+                return full_name;
+            }
+        }
 
         public string Select_2()
         {

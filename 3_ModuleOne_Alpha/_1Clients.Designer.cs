@@ -38,8 +38,18 @@
             button6 = new Button();
             panel1 = new Panel();
             button7 = new Button();
+            dataGridView2 = new DataGridView();
+            dataGridView3 = new DataGridView();
+            dataGridView4 = new DataGridView();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -146,11 +156,84 @@
             button7.UseVisualStyleBackColor = true;
             button7.Click += button7_Click;
             // 
+            // dataGridView2
+            // 
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(757, 57);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.Size = new Size(418, 98);
+            dataGridView2.TabIndex = 9;
+            // 
+            // dataGridView3
+            // 
+            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView3.Location = new Point(757, 214);
+            dataGridView3.Name = "dataGridView3";
+            dataGridView3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView3.Size = new Size(418, 98);
+            dataGridView3.TabIndex = 10;
+            // 
+            // dataGridView4
+            // 
+            dataGridView4.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView4.Location = new Point(757, 350);
+            dataGridView4.Name = "dataGridView4";
+            dataGridView4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView4.Size = new Size(418, 98);
+            dataGridView4.TabIndex = 11;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(757, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(75, 15);
+            label2.TabIndex = 12;
+            label2.Text = "Дупликации";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(757, 39);
+            label3.Name = "label3";
+            label3.Size = new Size(133, 15);
+            label3.TabIndex = 13;
+            label3.Text = "Повторяющийся Email";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(757, 332);
+            label4.Name = "label4";
+            label4.Size = new Size(151, 15);
+            label4.TabIndex = 14;
+            label4.Text = "Повторяющийся телефон";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(757, 196);
+            label5.Name = "label5";
+            label5.Size = new Size(124, 15);
+            label5.TabIndex = 15;
+            label5.Text = "Повторяющееся имя";
+            // 
             // _1Clients
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1187, 450);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(dataGridView4);
+            Controls.Add(dataGridView3);
+            Controls.Add(dataGridView2);
             Controls.Add(panel1);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
@@ -159,6 +242,9 @@
             Load += _1Clients_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,5 +261,12 @@
         private Button button6;
         private Panel panel1;
         private Button button7;
+        private DataGridView dataGridView2;
+        private DataGridView dataGridView3;
+        private DataGridView dataGridView4;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
     }
 }

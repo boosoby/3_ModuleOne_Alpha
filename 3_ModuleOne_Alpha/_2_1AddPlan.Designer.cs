@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
             label3 = new Label();
             dateTimePicker1 = new DateTimePicker();
@@ -38,22 +37,8 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             button4 = new Button();
-            label2 = new Label();
-            textBox2 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Font = new Font("Segoe UI", 12F);
-            radioButton2.Location = new Point(414, 251);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(146, 25);
-            radioButton2.TabIndex = 56;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Автозаполнение";
-            radioButton2.UseVisualStyleBackColor = true;
             // 
             // radioButton1
             // 
@@ -140,33 +125,12 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(576, 255);
-            label2.Name = "label2";
-            label2.Size = new Size(160, 21);
-            label2.TabIndex = 59;
-            label2.Text = "Изменить план на %:";
-            label2.Click += label2_Click;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(742, 253);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(140, 23);
-            textBox2.TabIndex = 58;
-            // 
             // _2_1AddPlan
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(901, 495);
-            Controls.Add(label2);
-            Controls.Add(textBox2);
             Controls.Add(button4);
-            Controls.Add(radioButton2);
             Controls.Add(radioButton1);
             Controls.Add(label3);
             Controls.Add(dateTimePicker1);
@@ -184,8 +148,6 @@
         }
 
         #endregion
-
-        private RadioButton radioButton2;
         private RadioButton radioButton1;
         private Label label3;
         private DateTimePicker dateTimePicker1;
@@ -195,7 +157,5 @@
         private DataGridView dataGridView1;
         private Label label1;
         private Button button4;
-        private Label label2;
-        private TextBox textBox2;
     }
 }

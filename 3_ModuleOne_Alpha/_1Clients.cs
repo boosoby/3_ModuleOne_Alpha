@@ -33,6 +33,21 @@ namespace _3_ModuleOne_Alpha
 
             dataGridView1.DataSource = dBCon.Select();
             dataGridView1.Columns[0].HeaderText = "Имя клиента";
+            
+            DB_1Clients dBCon2 = new DB_1Clients();
+
+            dataGridView2.DataSource = dBCon2.Select_email();
+          
+            
+            DB_1Clients dBCon3 = new DB_1Clients();
+
+            dataGridView3.DataSource = dBCon3.Select_name();
+           
+
+            DB_1Clients dBCon4 = new DB_1Clients();
+
+            dataGridView4.DataSource = dBCon4.Select_phone();
+           
             //
 
         }
