@@ -25,7 +25,13 @@ namespace _3_ModuleOne_Alpha
             DB_13Payment dBCon = new DB_13Payment();
 
             dataGridView1.DataSource = dBCon.Select();
+            
+            DB_13Payment dBCon2 = new DB_13Payment();
 
+            dataGridView2.DataSource = dBCon.Select_2();
+
+
+            
             dataGridView1.Hide();
             label5.Hide();
         }

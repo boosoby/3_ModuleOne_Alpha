@@ -73,6 +73,7 @@
             // 
             // button11DealAnalysis
             // 
+            button11DealAnalysis.ForeColor = Color.Red;
             button11DealAnalysis.Location = new Point(151, 119);
             button11DealAnalysis.Name = "button11DealAnalysis";
             button11DealAnalysis.Size = new Size(246, 23);
@@ -83,6 +84,7 @@
             // 
             // button10PlanAnalysis
             // 
+            button10PlanAnalysis.ForeColor = Color.Red;
             button10PlanAnalysis.Location = new Point(3, 119);
             button10PlanAnalysis.Name = "button10PlanAnalysis";
             button10PlanAnalysis.Size = new Size(142, 23);
@@ -93,6 +95,7 @@
             // 
             // button9Settings
             // 
+            button9Settings.ForeColor = Color.Red;
             button9Settings.Location = new Point(165, 90);
             button9Settings.Name = "button9Settings";
             button9Settings.Size = new Size(232, 23);
@@ -113,6 +116,7 @@
             // 
             // button7Efficiency
             // 
+            button7Efficiency.ForeColor = Color.Red;
             button7Efficiency.Location = new Point(84, 61);
             button7Efficiency.Name = "button7Efficiency";
             button7Efficiency.Size = new Size(313, 23);

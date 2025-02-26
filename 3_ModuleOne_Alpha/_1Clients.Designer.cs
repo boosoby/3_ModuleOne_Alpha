@@ -64,6 +64,7 @@
             // 
             // button1
             // 
+            button1.ForeColor = Color.Red;
             button1.Location = new Point(2, 3);
             button1.Name = "button1";
             button1.Size = new Size(156, 23);
@@ -73,6 +74,7 @@
             // 
             // button2
             // 
+            button2.ForeColor = Color.Red;
             button2.Location = new Point(164, 3);
             button2.Name = "button2";
             button2.Size = new Size(129, 23);
@@ -102,6 +104,7 @@
             // 
             // button5
             // 
+            button5.ForeColor = Color.Red;
             button5.Location = new Point(181, 32);
             button5.Name = "button5";
             button5.Size = new Size(218, 23);

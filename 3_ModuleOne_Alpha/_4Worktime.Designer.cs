@@ -34,6 +34,7 @@
             dataGridView1 = new DataGridView();
             label1 = new Label();
             dataGridView2 = new DataGridView();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
@@ -96,11 +97,22 @@
             dataGridView2.Size = new Size(1115, 312);
             dataGridView2.TabIndex = 13;
             // 
+            // button1
+            // 
+            button1.Location = new Point(40, 220);
+            button1.Name = "button1";
+            button1.Size = new Size(133, 47);
+            button1.TabIndex = 14;
+            button1.Text = "Учёт рабочего времени";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // _4Worktime
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1195, 618);
+            Controls.Add(button1);
             Controls.Add(dataGridView2);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -123,5 +135,6 @@
         private DataGridView dataGridView1;
         private Label label1;
         private DataGridView dataGridView2;
+        private Button button1;
     }
 }

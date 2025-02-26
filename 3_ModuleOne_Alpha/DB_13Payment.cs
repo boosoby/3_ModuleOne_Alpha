@@ -247,7 +247,39 @@ END
                 this.CloseConnection();
             }
         }
+        public BindingSource Select_2()
+        {
+            string query = "SELECT * from payment;";
 
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
         //Select statement
         public BindingSource Select()
         {

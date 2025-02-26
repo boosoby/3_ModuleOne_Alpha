@@ -39,7 +39,10 @@
             label1 = new Label();
             label2 = new Label();
             textBox2 = new TextBox();
+            dataGridView2 = new DataGridView();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // radioButton2
@@ -150,11 +153,33 @@
             textBox2.Size = new Size(261, 23);
             textBox2.TabIndex = 49;
             // 
+            // dataGridView2
+            // 
+            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(12, 530);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView2.Size = new Size(684, 152);
+            dataGridView2.TabIndex = 51;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F);
+            label3.Location = new Point(12, 506);
+            label3.Name = "label3";
+            label3.Size = new Size(150, 21);
+            label3.TabIndex = 52;
+            label3.Text = "История всех оплат";
+            // 
             // _6_2Payment
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 694);
+            Controls.Add(label3);
+            Controls.Add(dataGridView2);
             Controls.Add(label2);
             Controls.Add(textBox2);
             Controls.Add(radioButton2);
@@ -170,6 +195,7 @@
             Text = "_6_2Payment";
             Load += _6_2Payment_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -187,5 +213,7 @@
         private Label label1;
         private Label label2;
         private TextBox textBox2;
+        private DataGridView dataGridView2;
+        private Label label3;
     }
 }
