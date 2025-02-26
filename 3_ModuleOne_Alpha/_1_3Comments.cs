@@ -16,13 +16,10 @@ namespace _3_ModuleOne_Alpha
         public _1_3Comments()
         {
             InitializeComponent();
-            DB_1_1Contact_faces dbSelect = new DB_1_1Contact_faces();
+            DB_1Clients dbSelect = new DB_1Clients();
             dbSelect.Select();
             dataGridView1.DataSource = dbSelect.Select();
-            dataGridView1.Columns[0].HeaderText = "Номер";
-            dataGridView1.Columns[1].HeaderText = "ФИО контактного лица";
-            dataGridView1.Columns[2].HeaderText = "Телефон";
-            dataGridView1.Columns[3].HeaderText = "Должность";
+          
         }
         string id_clients;
         private void button4_Click(object sender, EventArgs e)
