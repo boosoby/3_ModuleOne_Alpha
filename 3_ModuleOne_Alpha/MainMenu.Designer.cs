@@ -30,6 +30,9 @@
         {
             button1Clients = new Button();
             panel1 = new Panel();
+            button3 = new Button();
+            button2 = new Button();
+            button1 = new Button();
             button11DealAnalysis = new Button();
             button10PlanAnalysis = new Button();
             button9Settings = new Button();
@@ -40,6 +43,7 @@
             button4WorkTime = new Button();
             button3Tasks = new Button();
             button2Plan = new Button();
+            button4 = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,6 +59,10 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(button4);
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(button11DealAnalysis);
             panel1.Controls.Add(button10PlanAnalysis);
             panel1.Controls.Add(button9Settings);
@@ -68,8 +76,38 @@
             panel1.Controls.Add(button1Clients);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(400, 165);
+            panel1.Size = new Size(400, 233);
             panel1.TabIndex = 1;
+            // 
+            // button3
+            // 
+            button3.Location = new Point(3, 177);
+            button3.Name = "button3";
+            button3.Size = new Size(182, 23);
+            button3.TabIndex = 13;
+            button3.Text = "Отправка почты";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(191, 148);
+            button2.Name = "button2";
+            button2.Size = new Size(182, 23);
+            button2.TabIndex = 12;
+            button2.Text = "Настройка почты";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(3, 148);
+            button1.Name = "button1";
+            button1.Size = new Size(182, 23);
+            button1.TabIndex = 11;
+            button1.Text = "Средний чек";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button11DealAnalysis
             // 
@@ -175,6 +213,16 @@
             button2Plan.UseVisualStyleBackColor = true;
             button2Plan.Click += button2Plan_Click;
             // 
+            // button4
+            // 
+            button4.Location = new Point(191, 177);
+            button4.Name = "button4";
+            button4.Size = new Size(182, 23);
+            button4.TabIndex = 14;
+            button4.Text = "Настройка календаря";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -202,5 +250,9 @@
         private Button button4WorkTime;
         private Button button3Tasks;
         private Button button2Plan;
+        private Button button1;
+        private Button button2;
+        private Button button3;
+        private Button button4;
     }
 }
