@@ -270,7 +270,8 @@ namespace _3_ModuleOne_Alpha
         }
         public string Select_role(string login,string pass)
         {
-            string query = $"select role from users where login = '{login}' and pass = '{pass}';";
+            string query = $"select role from users where login = @login and pass = @pass;";
+          //  string query = $"select role from users where login = '{login}' and pass = '{pass}';";
             string Count = "";
 
             //Open Connection
@@ -278,7 +279,8 @@ namespace _3_ModuleOne_Alpha
             {
                 //Create Mysql Command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-
+                cmd.Parameters.AddWithValue("@login", login);
+                cmd.Parameters.AddWithValue("@pass", pass);
                 //ExecuteScalar will return one value
                 Count = Convert.ToString(cmd.ExecuteScalar() + "");
 

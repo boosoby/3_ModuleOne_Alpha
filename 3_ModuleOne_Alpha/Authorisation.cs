@@ -55,6 +55,7 @@ namespace _3_ModuleOne_Alpha
 
             DB_17Authorisation dB_17 = new DB_17Authorisation();
             dB_17.Insert(login, pass, role);
+            MessageBox.Show("Регистрация прошла успешно!");
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

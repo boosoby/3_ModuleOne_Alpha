@@ -30,6 +30,7 @@
         {
             button1Clients = new Button();
             panel1 = new Panel();
+            button4 = new Button();
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
@@ -43,8 +44,9 @@
             button4WorkTime = new Button();
             button3Tasks = new Button();
             button2Plan = new Button();
-            button4 = new Button();
+            panel2 = new Panel();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // button1Clients
@@ -63,11 +65,7 @@
             panel1.Controls.Add(button3);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
-            panel1.Controls.Add(button11DealAnalysis);
-            panel1.Controls.Add(button10PlanAnalysis);
-            panel1.Controls.Add(button9Settings);
             panel1.Controls.Add(button8Images);
-            panel1.Controls.Add(button7Efficiency);
             panel1.Controls.Add(button6Deals);
             panel1.Controls.Add(button5Projects);
             panel1.Controls.Add(button4WorkTime);
@@ -78,6 +76,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(400, 233);
             panel1.TabIndex = 1;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(191, 177);
+            button4.Name = "button4";
+            button4.Size = new Size(182, 23);
+            button4.TabIndex = 14;
+            button4.Text = "Настройка календаря";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -112,7 +120,7 @@
             // button11DealAnalysis
             // 
             button11DealAnalysis.ForeColor = Color.Red;
-            button11DealAnalysis.Location = new Point(151, 119);
+            button11DealAnalysis.Location = new Point(3, 90);
             button11DealAnalysis.Name = "button11DealAnalysis";
             button11DealAnalysis.Size = new Size(246, 23);
             button11DealAnalysis.TabIndex = 10;
@@ -123,7 +131,7 @@
             // button10PlanAnalysis
             // 
             button10PlanAnalysis.ForeColor = Color.Red;
-            button10PlanAnalysis.Location = new Point(3, 119);
+            button10PlanAnalysis.Location = new Point(3, 61);
             button10PlanAnalysis.Name = "button10PlanAnalysis";
             button10PlanAnalysis.Size = new Size(142, 23);
             button10PlanAnalysis.TabIndex = 9;
@@ -134,7 +142,7 @@
             // button9Settings
             // 
             button9Settings.ForeColor = Color.Red;
-            button9Settings.Location = new Point(165, 90);
+            button9Settings.Location = new Point(3, 32);
             button9Settings.Name = "button9Settings";
             button9Settings.Size = new Size(232, 23);
             button9Settings.TabIndex = 8;
@@ -144,7 +152,7 @@
             // 
             // button8Images
             // 
-            button8Images.Location = new Point(3, 90);
+            button8Images.Location = new Point(84, 61);
             button8Images.Name = "button8Images";
             button8Images.Size = new Size(156, 23);
             button8Images.TabIndex = 7;
@@ -155,7 +163,7 @@
             // button7Efficiency
             // 
             button7Efficiency.ForeColor = Color.Red;
-            button7Efficiency.Location = new Point(84, 61);
+            button7Efficiency.Location = new Point(3, 3);
             button7Efficiency.Name = "button7Efficiency";
             button7Efficiency.Size = new Size(313, 23);
             button7Efficiency.TabIndex = 6;
@@ -213,26 +221,29 @@
             button2Plan.UseVisualStyleBackColor = true;
             button2Plan.Click += button2Plan_Click;
             // 
-            // button4
+            // panel2
             // 
-            button4.Location = new Point(191, 177);
-            button4.Name = "button4";
-            button4.Size = new Size(182, 23);
-            button4.TabIndex = 14;
-            button4.Text = "Настройка календаря";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
+            panel2.Controls.Add(button7Efficiency);
+            panel2.Controls.Add(button9Settings);
+            panel2.Controls.Add(button10PlanAnalysis);
+            panel2.Controls.Add(button11DealAnalysis);
+            panel2.Location = new Point(495, 12);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(340, 233);
+            panel2.TabIndex = 2;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(554, 257);
+            ClientSize = new Size(847, 257);
+            Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "MainMenu";
             Text = "Главное меню";
             Load += MainMenu_Load;
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -254,5 +265,6 @@
         private Button button2;
         private Button button3;
         private Button button4;
+        private Panel panel2;
     }
 }

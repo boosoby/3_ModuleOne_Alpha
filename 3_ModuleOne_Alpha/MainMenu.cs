@@ -77,7 +77,7 @@
 
         private void MainMenu_Load(object sender, EventArgs e)
         {
-
+            panel2.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)

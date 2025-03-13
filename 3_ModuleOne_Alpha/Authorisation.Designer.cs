@@ -144,10 +144,10 @@
             radioButton1.AutoSize = true;
             radioButton1.Location = new Point(482, 160);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(55, 19);
+            radioButton1.Size = new Size(62, 19);
             radioButton1.TabIndex = 11;
             radioButton1.TabStop = true;
-            radioButton1.Text = "Гость";
+            radioButton1.Text = "Админ";
             radioButton1.UseVisualStyleBackColor = true;
             radioButton1.CheckedChanged += radioButton1_CheckedChanged;
             // 
@@ -156,10 +156,10 @@
             radioButton2.AutoSize = true;
             radioButton2.Location = new Point(550, 160);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(62, 19);
+            radioButton2.Size = new Size(55, 19);
             radioButton2.TabIndex = 12;
             radioButton2.TabStop = true;
-            radioButton2.Text = "Админ";
+            radioButton2.Text = "Гость";
             radioButton2.UseVisualStyleBackColor = true;
             // 
             // Authorisation
