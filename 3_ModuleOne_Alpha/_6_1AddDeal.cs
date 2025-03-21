@@ -74,6 +74,8 @@ namespace _3_ModuleOne_Alpha
             dB_12Goods_In_Deals.Insert(quantity, idgoods);
 
             DB_6Deals payment = new DB_6Deals();
+
+            MessageBox.Show("Сделка успешно добавлена!");
            // payment.Insert_payment_deal(pay_date,pay_status);
             //(string date, int amount, int iddeal_status, int idclient_managers)
         }

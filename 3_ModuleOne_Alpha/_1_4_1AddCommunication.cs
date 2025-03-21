@@ -39,11 +39,11 @@ namespace _3_ModuleOne_Alpha
             }
             dB_10Communications.Insert(datestring, idclient, idcommunication_type, idtext);
             //    public void Insert(string date, int idclients, int idcommunication_type, string idtext)
+            MessageBox.Show("Комментарий успешно добавлен");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void _1_4_1AddCommunication_Load(object sender, EventArgs e)

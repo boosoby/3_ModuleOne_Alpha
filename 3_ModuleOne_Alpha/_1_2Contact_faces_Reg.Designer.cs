@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             textBox1 = new TextBox();
-            textBox2 = new TextBox();
             textBox3 = new TextBox();
             label1 = new Label();
             label2 = new Label();
@@ -37,6 +37,8 @@
             label4 = new Label();
             button1 = new Button();
             button2 = new Button();
+            maskedTextBox1 = new MaskedTextBox();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // textBox1
@@ -46,16 +48,9 @@
             textBox1.Size = new Size(261, 23);
             textBox1.TabIndex = 0;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(108, 107);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(261, 23);
-            textBox2.TabIndex = 1;
-            // 
             // textBox3
             // 
-            textBox3.Location = new Point(108, 136);
+            textBox3.Location = new Point(108, 142);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(261, 23);
             textBox3.TabIndex = 2;
@@ -84,7 +79,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(12, 134);
+            label3.Location = new Point(12, 140);
             label3.Name = "label3";
             label3.Size = new Size(90, 21);
             label3.TabIndex = 5;
@@ -102,7 +97,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(108, 165);
+            button1.Location = new Point(108, 171);
             button1.Name = "button1";
             button1.Size = new Size(75, 23);
             button1.TabIndex = 7;
@@ -112,18 +107,28 @@
             // 
             // button2
             // 
-            button2.Location = new Point(189, 165);
+            button2.Location = new Point(189, 171);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 8;
             button2.Text = "Назад";
             button2.UseVisualStyleBackColor = true;
             // 
-            // _1_1Contact_faces_Reg
+            // maskedTextBox1
+            // 
+            maskedTextBox1.Location = new Point(108, 110);
+            maskedTextBox1.Name = "maskedTextBox1";
+            maskedTextBox1.Size = new Size(261, 23);
+            maskedTextBox1.TabIndex = 9;
+            maskedTextBox1.MaskInputRejected += maskedTextBox1_MaskInputRejected;
+            maskedTextBox1.KeyDown += maskedTextBox1_KeyDown;
+            // 
+            // _1_2Contact_faces_Reg
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(maskedTextBox1);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label4);
@@ -131,10 +136,10 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(textBox3);
-            Controls.Add(textBox2);
             Controls.Add(textBox1);
-            Name = "_1_1Contact_faces_Reg";
+            Name = "_1_2Contact_faces_Reg";
             Text = "_1_1Contact_faces_Reg";
+            Load += _1_2Contact_faces_Reg_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -142,7 +147,6 @@
         #endregion
 
         private TextBox textBox1;
-        private TextBox textBox2;
         private TextBox textBox3;
         private Label label1;
         private Label label2;
@@ -150,5 +154,7 @@
         private Label label4;
         private Button button1;
         private Button button2;
+        private MaskedTextBox maskedTextBox1;
+        private ToolTip toolTip1;
     }
 }

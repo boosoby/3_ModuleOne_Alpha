@@ -95,6 +95,7 @@ namespace _3_ModuleOne_Alpha
             dB_13Payment1.Update_percent(pay_percent, iddeals);
             DB_13Payment dB_13Payment2 = new DB_13Payment();
             dB_13Payment2.Update_status();
+            MessageBox.Show("Оплата успешно добавлена");
         }
     }
 }

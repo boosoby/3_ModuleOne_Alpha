@@ -45,6 +45,7 @@ namespace _3_ModuleOne_Alpha
             }
             DB_3Tasks dB_3Tasks = new DB_3Tasks();
             dB_3Tasks.Insert(task_name,idprojects, idclientmanagers);
+            MessageBox.Show("Задача успешно добавлена");
         }
 
         private void _3_1Add_Tasks_Load(object sender, EventArgs e)

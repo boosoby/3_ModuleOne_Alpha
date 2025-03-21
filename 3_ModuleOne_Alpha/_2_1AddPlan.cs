@@ -47,6 +47,7 @@ namespace _3_ModuleOne_Alpha
 
 
             }
+            MessageBox.Show("План успешно добавлен");
         }
     }
 }

@@ -71,7 +71,7 @@ namespace _3_ModuleOne_Alpha
                 }
 
             }
-
+            MessageBox.Show("Новый клиент успешно добавлен!");
         }
         private void button1_Click(object sender, EventArgs e)
         {

@@ -41,6 +41,7 @@ namespace _3_ModuleOne_Alpha
                 }
 
             }
+            MessageBox.Show("Комментарий успешно добавлен");
         }
 
         private void _1_3Comments_Load(object sender, EventArgs e)
