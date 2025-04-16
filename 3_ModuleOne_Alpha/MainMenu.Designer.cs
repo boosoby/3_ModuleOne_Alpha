@@ -34,17 +34,18 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            button11DealAnalysis = new Button();
-            button10PlanAnalysis = new Button();
-            button9Settings = new Button();
             button8Images = new Button();
-            button7Efficiency = new Button();
             button6Deals = new Button();
             button5Projects = new Button();
             button4WorkTime = new Button();
             button3Tasks = new Button();
             button2Plan = new Button();
+            button11DealAnalysis = new Button();
+            button10PlanAnalysis = new Button();
+            button9Settings = new Button();
+            button7Efficiency = new Button();
             panel2 = new Panel();
+            button5 = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -117,39 +118,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // button11DealAnalysis
-            // 
-            button11DealAnalysis.ForeColor = Color.Red;
-            button11DealAnalysis.Location = new Point(3, 90);
-            button11DealAnalysis.Name = "button11DealAnalysis";
-            button11DealAnalysis.Size = new Size(246, 23);
-            button11DealAnalysis.TabIndex = 10;
-            button11DealAnalysis.Text = "Анализ сделок и клиентов";
-            button11DealAnalysis.UseVisualStyleBackColor = true;
-            button11DealAnalysis.Click += button11DealAnalysis_Click;
-            // 
-            // button10PlanAnalysis
-            // 
-            button10PlanAnalysis.ForeColor = Color.Red;
-            button10PlanAnalysis.Location = new Point(3, 61);
-            button10PlanAnalysis.Name = "button10PlanAnalysis";
-            button10PlanAnalysis.Size = new Size(142, 23);
-            button10PlanAnalysis.TabIndex = 9;
-            button10PlanAnalysis.Text = "План-фактный анализ";
-            button10PlanAnalysis.UseVisualStyleBackColor = true;
-            button10PlanAnalysis.Click += button10PlanAnalysis_Click;
-            // 
-            // button9Settings
-            // 
-            button9Settings.ForeColor = Color.Red;
-            button9Settings.Location = new Point(3, 32);
-            button9Settings.Name = "button9Settings";
-            button9Settings.Size = new Size(232, 23);
-            button9Settings.TabIndex = 8;
-            button9Settings.Text = "Настройки";
-            button9Settings.UseVisualStyleBackColor = true;
-            button9Settings.Click += button9Settings_Click;
-            // 
             // button8Images
             // 
             button8Images.Location = new Point(84, 61);
@@ -159,17 +127,6 @@
             button8Images.Text = "Загрузка изображений";
             button8Images.UseVisualStyleBackColor = true;
             button8Images.Click += button8Images_Click;
-            // 
-            // button7Efficiency
-            // 
-            button7Efficiency.ForeColor = Color.Red;
-            button7Efficiency.Location = new Point(3, 3);
-            button7Efficiency.Name = "button7Efficiency";
-            button7Efficiency.Size = new Size(313, 23);
-            button7Efficiency.TabIndex = 6;
-            button7Efficiency.Text = "Отчёт по эффективности";
-            button7Efficiency.UseVisualStyleBackColor = true;
-            button7Efficiency.Click += button7Efficiency_Click;
             // 
             // button6Deals
             // 
@@ -221,6 +178,50 @@
             button2Plan.UseVisualStyleBackColor = true;
             button2Plan.Click += button2Plan_Click;
             // 
+            // button11DealAnalysis
+            // 
+            button11DealAnalysis.ForeColor = Color.Red;
+            button11DealAnalysis.Location = new Point(3, 90);
+            button11DealAnalysis.Name = "button11DealAnalysis";
+            button11DealAnalysis.Size = new Size(246, 23);
+            button11DealAnalysis.TabIndex = 10;
+            button11DealAnalysis.Text = "Анализ сделок и клиентов";
+            button11DealAnalysis.UseVisualStyleBackColor = true;
+            button11DealAnalysis.Click += button11DealAnalysis_Click;
+            // 
+            // button10PlanAnalysis
+            // 
+            button10PlanAnalysis.ForeColor = Color.Red;
+            button10PlanAnalysis.Location = new Point(3, 61);
+            button10PlanAnalysis.Name = "button10PlanAnalysis";
+            button10PlanAnalysis.Size = new Size(142, 23);
+            button10PlanAnalysis.TabIndex = 9;
+            button10PlanAnalysis.Text = "План-фактный анализ";
+            button10PlanAnalysis.UseVisualStyleBackColor = true;
+            button10PlanAnalysis.Click += button10PlanAnalysis_Click;
+            // 
+            // button9Settings
+            // 
+            button9Settings.ForeColor = Color.Red;
+            button9Settings.Location = new Point(3, 32);
+            button9Settings.Name = "button9Settings";
+            button9Settings.Size = new Size(232, 23);
+            button9Settings.TabIndex = 8;
+            button9Settings.Text = "Настройки";
+            button9Settings.UseVisualStyleBackColor = true;
+            button9Settings.Click += button9Settings_Click;
+            // 
+            // button7Efficiency
+            // 
+            button7Efficiency.ForeColor = Color.Red;
+            button7Efficiency.Location = new Point(3, 3);
+            button7Efficiency.Name = "button7Efficiency";
+            button7Efficiency.Size = new Size(313, 23);
+            button7Efficiency.TabIndex = 6;
+            button7Efficiency.Text = "Отчёт по эффективности";
+            button7Efficiency.UseVisualStyleBackColor = true;
+            button7Efficiency.Click += button7Efficiency_Click;
+            // 
             // panel2
             // 
             panel2.Controls.Add(button7Efficiency);
@@ -232,11 +233,22 @@
             panel2.Size = new Size(340, 233);
             panel2.TabIndex = 2;
             // 
+            // button5
+            // 
+            button5.Location = new Point(12, 222);
+            button5.Name = "button5";
+            button5.Size = new Size(182, 23);
+            button5.TabIndex = 15;
+            button5.Text = "Аккаунт";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(847, 257);
+            Controls.Add(button5);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "MainMenu";
@@ -266,5 +278,6 @@
         private Button button3;
         private Button button4;
         private Panel panel2;
+        private Button button5;
     }
 }

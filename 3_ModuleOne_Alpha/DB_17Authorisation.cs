@@ -86,9 +86,9 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert(string login, string pass, int role)
+        public void Insert(string login, string pass, int role, string full_name, string years_of_work)
         {
-            string query = $"INSERT INTO users(login, pass, role) values ('{login}', '{pass}', '{role}')";
+            string query = $"INSERT INTO users(login, pass, role, full_name, years_of_work) values ('{login}', '{pass}', '{role}', '{full_name}', '{years_of_work}')";
 
             //open connection
             if (this.OpenConnection() == true)
