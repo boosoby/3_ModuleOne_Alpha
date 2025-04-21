@@ -16,6 +16,91 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `averag_c`
+--
+
+DROP TABLE IF EXISTS `averag_c`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `averag_c` (
+  `idaverag` int NOT NULL AUTO_INCREMENT,
+  `idclients` int DEFAULT NULL,
+  `sum` int DEFAULT NULL,
+  `aver` int DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  PRIMARY KEY (`idaverag`),
+  KEY `idclients14_idx` (`idclients`),
+  CONSTRAINT `idclients14` FOREIGN KEY (`idclients`) REFERENCES `clients` (`idclients`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `averag_c`
+--
+
+LOCK TABLES `averag_c` WRITE;
+/*!40000 ALTER TABLE `averag_c` DISABLE KEYS */;
+INSERT INTO `averag_c` VALUES (6,1,2251122,204648,11),(7,3,50159,16720,3);
+/*!40000 ALTER TABLE `averag_c` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `averag_m`
+--
+
+DROP TABLE IF EXISTS `averag_m`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `averag_m` (
+  `idaverag_m` int NOT NULL AUTO_INCREMENT,
+  `quantity` int DEFAULT NULL,
+  `idmanagers` int DEFAULT NULL,
+  `aver` int DEFAULT NULL,
+  `sum` int DEFAULT NULL,
+  PRIMARY KEY (`idaverag_m`),
+  KEY `idmanagers7_idx` (`idmanagers`),
+  CONSTRAINT `idmanagers7` FOREIGN KEY (`idmanagers`) REFERENCES `managers` (`idmanagers`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `averag_m`
+--
+
+LOCK TABLES `averag_m` WRITE;
+/*!40000 ALTER TABLE `averag_m` DISABLE KEYS */;
+INSERT INTO `averag_m` VALUES (2,11,1,204648,2251122);
+/*!40000 ALTER TABLE `averag_m` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `calendar_conf`
+--
+
+DROP TABLE IF EXISTS `calendar_conf`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `calendar_conf` (
+  `idcalendar_conf` int NOT NULL AUTO_INCREMENT,
+  `login` varchar(45) DEFAULT NULL,
+  `pass` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idcalendar_conf`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `calendar_conf`
+--
+
+LOCK TABLES `calendar_conf` WRITE;
+/*!40000 ALTER TABLE `calendar_conf` DISABLE KEYS */;
+INSERT INTO `calendar_conf` VALUES (1,'bogdan','1234','sesta.com','Рабочий календарь'),(2,'gog','4321','vesta.com','Календарь мероприятий'),(3,'anton','123434532','Дни рождения','krut.ru'),(4,'semyon','you22','Для виду','udfudf.cpm'),(5,'kjlkj','bvv','vbv','vcxb'),(6,'fds','fdsfdssfdsdf','sdffsdfsd','sfdfsdfsd'),(7,'kolobok','sdafgfghhggf','Мероприятия','bla.ru');
+/*!40000 ALTER TABLE `calendar_conf` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `client_comment`
 --
 
@@ -27,8 +112,8 @@ CREATE TABLE `client_comment` (
   `text` varchar(45) DEFAULT NULL,
   `idclients` int DEFAULT NULL,
   PRIMARY KEY (`idclient_comment`),
-  CONSTRAINT `idclients7` FOREIGN KEY (`idclient_comment`) REFERENCES `clients` (`idclients`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `idclients100_idx` (`idclients`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +122,7 @@ CREATE TABLE `client_comment` (
 
 LOCK TABLES `client_comment` WRITE;
 /*!40000 ALTER TABLE `client_comment` DISABLE KEYS */;
-INSERT INTO `client_comment` VALUES (1,'Классный человек. Пригласил покушать',1),(2,'Мы с ним лего собирали',4);
+INSERT INTO `client_comment` VALUES (1,'Классный человек. Пригласил покушать',1),(2,'Мы с ним лего собирали',4),(3,'fdsdfds',1),(12,'gfgdf',3),(13,'ghfhfghgfh',1),(14,'Ура победа',17),(15,'бебебебе',2),(16,'бебебебе',1),(17,'крутой',2),(18,'классный чел',3),(19,'Крутой, очень умный',1),(20,'Тест',2);
 /*!40000 ALTER TABLE `client_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +142,7 @@ CREATE TABLE `client_managers` (
   KEY `idmanagers_idx` (`idmanagers`),
   CONSTRAINT `idclients` FOREIGN KEY (`idclients`) REFERENCES `clients` (`idclients`),
   CONSTRAINT `idmanagers` FOREIGN KEY (`idmanagers`) REFERENCES `managers` (`idmanagers`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +151,7 @@ CREATE TABLE `client_managers` (
 
 LOCK TABLES `client_managers` WRITE;
 /*!40000 ALTER TABLE `client_managers` DISABLE KEYS */;
-INSERT INTO `client_managers` VALUES (1,1,2),(2,2,1),(3,3,1),(6,16,2),(7,15,1);
+INSERT INTO `client_managers` VALUES (1,1,2),(2,2,1),(3,3,1),(6,16,2),(7,15,1),(8,17,2),(9,24,2),(10,25,2),(11,26,2),(12,27,2),(13,28,1),(14,30,2),(15,31,3),(16,32,3);
 /*!40000 ALTER TABLE `client_managers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -81,10 +166,12 @@ CREATE TABLE `clients` (
   `idclients` int NOT NULL AUTO_INCREMENT,
   `full_name` varchar(45) DEFAULT NULL,
   `idcontact_face` int DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idclients`),
   KEY `fkcontact_face_idx` (`idcontact_face`),
   CONSTRAINT `fkcontact_face` FOREIGN KEY (`idcontact_face`) REFERENCES `contact_face` (`idcontact_face`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,7 +180,7 @@ CREATE TABLE `clients` (
 
 LOCK TABLES `clients` WRITE;
 /*!40000 ALTER TABLE `clients` DISABLE KEYS */;
-INSERT INTO `clients` VALUES (1,'Колесников Богдан Евгеньевич',1),(2,'Крашениников Михаил Фёдорович',2),(3,'Зубенко Михаил Петрович',3),(15,'Красноярский Краскон Антонович',5),(16,'Филармонов Филармон Филыч',5);
+INSERT INTO `clients` VALUES (1,'Колесников Богдан Евгеньевич',1,'beazon@gmail.com','+79960520304'),(2,'Крашениников Михаил Фёдорович',2,'a@gmail.com','+79029187401'),(3,'Зубенко Михаил Петрович',3,'bob@gmail.com','+79960520304'),(15,'Красноярский Краскон Антонович',5,'b@gmail.com','+79029187402'),(16,'Филармонов Филармон Филыч',5,'bob@gmail.com','+79029187403'),(17,'Крутой Иван Иваныч',6,'c@gmail.com','+79029187404'),(18,'Крутой Иван Иваныч',6,'v@gmail.com','+79029187405'),(21,'Семафоров Антон Константинович',6,'d@gmail.com','+79029187405'),(22,'Семафоров Иван Антоныч',6,'e@gmail.com','+79029187406'),(23,'Семафоров Иван Антоныч',6,'f@gmail.com',NULL),(24,'Колобок Иван ВАныч',2,'g@gmail.com',NULL),(25,'Колобок Иван Антонович',7,'h@gmail.com',NULL),(26,'Крутой Иван Иваныч',1,'i@gmail.com',NULL),(27,'Колобок Иван Антонович',1,'j@gmail.com',NULL),(28,'Крутой Иван Иваныч',7,'k@gmail.com',NULL),(29,NULL,NULL,'l@gmail.com',NULL),(30,'Сварщиков Сварщик Сварщикович',8,NULL,NULL),(31,'Тестовый Тест Тестович',3,NULL,NULL),(32,'Колесников Тест Тест',4,NULL,NULL);
 /*!40000 ALTER TABLE `clients` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,7 +222,7 @@ CREATE TABLE `communications` (
   `idtext` varchar(200) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`idcommunications`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -144,7 +231,7 @@ CREATE TABLE `communications` (
 
 LOCK TABLES `communications` WRITE;
 /*!40000 ALTER TABLE `communications` DISABLE KEYS */;
-INSERT INTO `communications` VALUES (1,1,1,'познакомились и обменялись контактами','2024-06-17 11:37:23'),(2,2,1,'Пригласили друг друга в ресторан','2024-06-17 12:40:23'),(3,1,1,'text','2025-02-17 16:26:13'),(4,1,1,'Сходили во вкусно и точка. Купили ам нямов. Довольны','2025-02-05 16:49:48'),(5,1,2,'Сегодня почиллили','2025-02-17 16:50:44');
+INSERT INTO `communications` VALUES (1,1,1,'познакомились и обменялись контактами','2024-06-17 11:37:23'),(2,2,1,'Пригласили друг друга в ресторан','2024-06-17 12:40:23'),(3,1,1,'text','2025-02-17 16:26:13'),(4,1,1,'Сходили во вкусно и точка. Купили ам нямов. Довольны','2025-02-05 16:49:48'),(5,1,2,'Сегодня почиллили','2025-02-17 16:50:44'),(6,1,2,'я хочу кушать','2025-02-26 12:47:10'),(7,1,2,'я хочу кушать','2025-02-26 12:47:10'),(8,25,1,'Мы побалакали','2025-02-26 19:48:31'),(9,25,2,'Мы покушали','2025-02-26 19:49:09'),(10,2,2,'Мы сходили в кефас','2025-03-05 16:53:02'),(11,1,2,'Поговорили','2025-03-12 14:15:04'),(12,1,1,'Покушали','2025-03-21 11:44:47'),(13,1,1,'бубубуб','2025-03-21 13:33:48');
 /*!40000 ALTER TABLE `communications` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -161,7 +248,7 @@ CREATE TABLE `contact_face` (
   `contact_data` varchar(45) DEFAULT NULL,
   `job` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idcontact_face`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +257,7 @@ CREATE TABLE `contact_face` (
 
 LOCK TABLES `contact_face` WRITE;
 /*!40000 ALTER TABLE `contact_face` DISABLE KEYS */;
-INSERT INTO `contact_face` VALUES (1,'Особый Борис Витальевич','+79960520304','СММ-менеджер'),(2,'Креативный Иван Антонович','+79233570262','Креативный директор'),(3,'Крутой Антон Тарасович','+79990001323','Креативный директор'),(4,'Андреев Андрей Андреевич','+79029187402','Вице-президент'),(5,'Семаков Антон Андреевич','+79905675909','Маркетолог');
+INSERT INTO `contact_face` VALUES (1,'Особый Борис Витальевич','+79960520304','СММ-менеджер'),(2,'Креативный Иван Антонович','+79233570262','Креативный директор'),(3,'Крутой Антон Тарасович','+79990001323','Креативный директор'),(4,'Андреев Андрей Андреевич','+79029187402','Вице-президент'),(5,'Семаков Антон Андреевич','+79905675909','Маркетолог'),(6,'Бу','аааа','Крутой'),(7,'Колесниоываорал','+79029187401','СЕО'),(8,'Александров Борис Юрьевич','+79999090991','Сварщик'),(9,'Контактов Билайн Мтсович','','999.000.9990'),(10,'Тест Телефона Погнальевич','+7.999.020.3029','Крутой'),(11,'Тест Тест Тест','+7.902.918.7491','Тестировщик');
 /*!40000 ALTER TABLE `contact_face` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +309,7 @@ CREATE TABLE `deals` (
   CONSTRAINT `idclient_managers` FOREIGN KEY (`idclient_managers`) REFERENCES `client_managers` (`idclient_managers`),
   CONSTRAINT `iddeal_status` FOREIGN KEY (`iddeal_status`) REFERENCES `deal_status` (`iddeal_status`),
   CONSTRAINT `idpay_status2` FOREIGN KEY (`idpay_status`) REFERENCES `pay_status` (`idpay_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +318,7 @@ CREATE TABLE `deals` (
 
 LOCK TABLES `deals` WRITE;
 /*!40000 ALTER TABLE `deals` DISABLE KEYS */;
-INSERT INTO `deals` VALUES (1,'2025-02-10 10:00:00',500000,2,1,NULL,NULL,2,NULL),(2,'2025-02-10 12:00:00',150000,1,2,NULL,10,2,NULL),(3,'2025-02-10 12:00:00',500000,2,1,NULL,NULL,2,NULL),(4,'2025-02-11 17:27:45',123000,1,1,NULL,NULL,2,NULL),(5,'2025-02-11 17:27:45',12300,1,2,NULL,NULL,2,NULL),(6,'2025-02-15 17:35:27',123123,2,1,'Покупка айфонов',NULL,2,NULL),(7,'2025-02-12 18:22:44',800000,2,1,'Покупка айфонов',40,2,NULL),(8,'2025-02-18 21:48:51',50,1,3,'Чокопайка',50,2,NULL),(9,'2025-02-06 21:51:44',100000,1,2,'Да',NULL,2,NULL),(10,'2025-02-07 21:54:08',70000,2,2,'Бу',NULL,2,NULL),(11,'2025-02-12 22:23:12',700000,2,2,'Ещё один айфон',100,1,NULL),(12,'2025-02-11 22:54:56',50000,1,1,'Айфон Се',50,2,'2025-02-10 16:00:00'),(14,'2025-02-19 00:34:56',100000,1,1,'Биг мани',100,1,NULL),(15,'2025-02-20 22:03:34',50000,1,3,'Еще одна продажа',100,1,NULL),(16,'2025-02-20 22:39:21',50000,1,1,'Всем привет',100,1,'2025-02-10 16:00:00'),(17,'2025-02-06 01:03:41',50000,1,6,'Покупка айфона',NULL,2,'2025-02-10 16:00:00'),(18,'2025-02-01 01:05:01',550000,1,2,'По приколу',NULL,2,'2025-02-10 16:00:00'),(19,'2025-02-22 01:05:40',100,1,6,'По приколу еще раз',NULL,2,'2025-02-10 16:00:00'),(20,'2025-02-22 01:11:17',1000,2,1,'Покупка торта',NULL,2,'2025-02-10 01:11:17'),(21,'2025-02-22 01:21:10',109,1,3,'Виноград',NULL,2,'2025-02-07 11:21:09'),(22,'2025-02-22 01:37:46',1000,1,1,'Так',NULL,2,'2025-02-22 01:37:46'),(23,'2025-02-01 01:38:09',2999,1,1,'Урара',NULL,2,'2025-02-07 01:38:09'),(24,'2025-02-19 02:05:36',34324,1,7,'Буба',100,1,'2025-02-20 02:05:36');
+INSERT INTO `deals` VALUES (1,'2025-02-10 10:00:00',500000,2,1,NULL,31,2,NULL),(2,'2025-02-10 12:00:00',150000,1,2,NULL,100,1,NULL),(3,'2025-02-10 12:00:00',500000,2,1,NULL,NULL,2,NULL),(4,'2025-02-11 17:27:45',123000,1,1,NULL,NULL,2,NULL),(5,'2025-02-11 17:27:45',12300,1,2,NULL,NULL,2,NULL),(6,'2025-02-15 17:35:27',123123,2,1,'Покупка айфонов',NULL,2,NULL),(7,'2025-02-12 18:22:44',800000,2,1,'Покупка айфонов',100,1,NULL),(8,'2025-02-18 21:48:51',50,1,3,'Чокопайка',50,2,NULL),(9,'2025-02-06 21:51:44',100000,1,2,'Да',NULL,2,NULL),(10,'2025-02-07 21:54:08',70000,2,2,'Бу',NULL,2,NULL),(11,'2025-02-12 22:23:12',700000,2,2,'Ещё один айфон',100,1,NULL),(12,'2025-02-11 22:54:56',50000,1,1,'Айфон Се',100,1,'2025-02-10 16:00:00'),(14,'2025-02-19 00:34:56',100000,1,1,'Биг мани',100,1,NULL),(15,'2025-02-20 22:03:34',50000,1,3,'Еще одна продажа',100,1,NULL),(16,'2025-02-20 22:39:21',50000,1,1,'Всем привет',100,1,'2025-02-10 16:00:00'),(17,'2025-02-06 01:03:41',50000,1,6,'Покупка айфона',NULL,2,'2025-02-10 16:00:00'),(18,'2025-02-01 01:05:01',550000,1,2,'По приколу',NULL,2,'2025-02-10 16:00:00'),(19,'2025-02-22 01:05:40',100,1,6,'По приколу еще раз',NULL,2,'2025-02-10 16:00:00'),(20,'2025-02-22 01:11:17',1000,2,1,'Покупка торта',NULL,2,'2025-02-10 01:11:17'),(21,'2025-02-22 01:21:10',109,1,3,'Виноград',NULL,2,'2025-02-07 11:21:09'),(22,'2025-02-22 01:37:46',1000,1,1,'Так',NULL,2,'2025-02-22 01:37:46'),(23,'2025-02-01 01:38:09',2999,1,1,'Урара',100,1,'2025-02-07 01:38:09'),(24,'2025-02-19 02:05:36',34324,1,7,'Буба',100,1,'2025-02-20 02:05:36'),(25,'2025-02-26 19:50:32',50000,1,3,'Покупка',NULL,2,'2025-02-28 19:50:32');
 /*!40000 ALTER TABLE `deals` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -301,7 +388,7 @@ CREATE TABLE `goods_in_deals` (
   KEY `iddeals_idx` (`iddeals`),
   CONSTRAINT `iddeals` FOREIGN KEY (`iddeals`) REFERENCES `deals` (`iddeals`),
   CONSTRAINT `idgoods` FOREIGN KEY (`idgoods`) REFERENCES `goods` (`idgoods`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,8 +397,36 @@ CREATE TABLE `goods_in_deals` (
 
 LOCK TABLES `goods_in_deals` WRITE;
 /*!40000 ALTER TABLE `goods_in_deals` DISABLE KEYS */;
-INSERT INTO `goods_in_deals` VALUES (1,10,4,1),(2,15,1,2),(3,10,3,7),(4,1,1,8),(5,1,1,9),(6,1,1,10),(7,1,1,11),(8,1,4,12),(9,2,4,14),(10,1,4,15),(11,1,4,16),(12,1,4,17),(13,12,4,18),(14,2,1,19),(15,1,1,20),(16,8,1,21),(17,1,2,22),(18,8,1,23),(19,8,1,24);
+INSERT INTO `goods_in_deals` VALUES (1,10,4,1),(2,15,1,2),(3,10,3,7),(4,1,1,8),(5,1,1,9),(6,1,1,10),(7,1,1,11),(8,1,4,12),(9,2,4,14),(10,1,4,15),(11,1,4,16),(12,1,4,17),(13,12,4,18),(14,2,1,19),(15,1,1,20),(16,8,1,21),(17,1,2,22),(18,8,1,23),(19,8,1,24),(20,1,4,25);
 /*!40000 ALTER TABLE `goods_in_deals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `life_loop`
+--
+
+DROP TABLE IF EXISTS `life_loop`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `life_loop` (
+  `idlife_loop` int NOT NULL AUTO_INCREMENT,
+  `idclients` int DEFAULT NULL,
+  `life_status` int DEFAULT NULL,
+  `quantity` int DEFAULT NULL,
+  PRIMARY KEY (`idlife_loop`),
+  KEY `idclients13_idx` (`idclients`),
+  CONSTRAINT `idclients13` FOREIGN KEY (`idclients`) REFERENCES `clients` (`idclients`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `life_loop`
+--
+
+LOCK TABLES `life_loop` WRITE;
+/*!40000 ALTER TABLE `life_loop` DISABLE KEYS */;
+INSERT INTO `life_loop` VALUES (1,1,2,11);
+/*!40000 ALTER TABLE `life_loop` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -325,7 +440,7 @@ CREATE TABLE `managers` (
   `idmanagers` int NOT NULL AUTO_INCREMENT,
   `full_name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idmanagers`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -334,8 +449,33 @@ CREATE TABLE `managers` (
 
 LOCK TABLES `managers` WRITE;
 /*!40000 ALTER TABLE `managers` DISABLE KEYS */;
-INSERT INTO `managers` VALUES (1,'Витас Антон Витальевич'),(2,'Зимбабве Омумба Банджо');
+INSERT INTO `managers` VALUES (1,'Витас Антон Витальевич'),(2,'Зимбабве Омумба Банджо'),(3,'Бедняков Семён Антонович');
 /*!40000 ALTER TABLE `managers` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `my_emails`
+--
+
+DROP TABLE IF EXISTS `my_emails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `my_emails` (
+  `idmy_emails` int NOT NULL AUTO_INCREMENT,
+  `email` varchar(45) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idmy_emails`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `my_emails`
+--
+
+LOCK TABLES `my_emails` WRITE;
+/*!40000 ALTER TABLE `my_emails` DISABLE KEYS */;
+INSERT INTO `my_emails` VALUES (1,'bo.osoby@gmail.com','1234'),(2,'c@gmail.com','4321'),(3,'bo.osoby@gmail.com','7777'),(4,'jghjgh','ghjgh'),(5,'bo.osoby@gmail.com','fddsdsfdf'),(6,'bbbbbbb@gmail.com','123456789_!'),(7,'bo.osoby@gmail.com','123456789');
+/*!40000 ALTER TABLE `my_emails` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -382,7 +522,7 @@ CREATE TABLE `payment` (
   KEY `iddeals_idx` (`iddeals`),
   CONSTRAINT `iddeals3` FOREIGN KEY (`iddeals`) REFERENCES `deals` (`iddeals`),
   CONSTRAINT `idpay_status` FOREIGN KEY (`pay_status`) REFERENCES `pay_status` (`idpay_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -391,7 +531,7 @@ CREATE TABLE `payment` (
 
 LOCK TABLES `payment` WRITE;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
-INSERT INTO `payment` VALUES (3,'2025-02-10 10:00:00',500000,100,1,1,NULL),(4,'2025-02-10 13:00:00',15000,100,1,2,NULL),(5,'2025-02-10 14:00:00',1000,77,2,7,NULL),(7,'2025-02-10 16:00:00',NULL,77,2,6,NULL),(8,'2025-02-18 21:48:51',NULL,100,1,8,NULL),(10,'2025-02-18 21:54:08',NULL,100,1,10,NULL),(11,'2025-02-17 22:23:12',NULL,77,2,11,NULL),(12,'2025-02-12 22:54:56',NULL,82,2,12,NULL),(13,'2025-02-20 00:34:56',NULL,77,2,14,NULL),(14,'2025-02-22 22:03:34',NULL,77,2,15,NULL),(15,'2025-02-19 22:39:21',NULL,77,2,16,NULL),(18,'2025-02-22 00:50:20',15000,10,2,2,'Ура'),(19,'2025-02-22 01:01:41',80000,10,2,7,'По приколу'),(20,'2025-02-22 01:02:01',80000,10,2,7,'По приколу'),(21,'2025-02-22 01:02:19',160000,20,2,7,'По приколу 3'),(22,'2025-02-13 01:03:41',NULL,NULL,2,17,NULL),(23,'2025-02-05 01:05:01',NULL,NULL,2,18,NULL),(24,'2025-02-22 01:05:40',NULL,NULL,2,19,NULL),(25,'2025-02-22 02:06:27',45000,100,1,24,'Ьуьа');
+INSERT INTO `payment` VALUES (3,'2025-02-10 10:00:00',500000,100,1,1,NULL),(4,'2025-02-10 13:00:00',15000,100,1,2,NULL),(5,'2025-02-10 14:00:00',1000,77,2,7,NULL),(7,'2025-02-10 16:00:00',NULL,77,2,6,NULL),(8,'2025-02-18 21:48:51',NULL,100,1,8,NULL),(10,'2025-02-18 21:54:08',NULL,100,1,10,NULL),(11,'2025-02-17 22:23:12',NULL,77,2,11,NULL),(12,'2025-02-12 22:54:56',NULL,82,2,12,NULL),(13,'2025-02-20 00:34:56',NULL,77,2,14,NULL),(14,'2025-02-22 22:03:34',NULL,77,2,15,NULL),(15,'2025-02-19 22:39:21',NULL,77,2,16,NULL),(18,'2025-02-22 00:50:20',15000,10,2,2,'Ура'),(19,'2025-02-22 01:01:41',80000,10,2,7,'По приколу'),(20,'2025-02-22 01:02:01',80000,10,2,7,'По приколу'),(21,'2025-02-22 01:02:19',160000,20,2,7,'По приколу 3'),(22,'2025-02-13 01:03:41',NULL,NULL,2,17,NULL),(23,'2025-02-05 01:05:01',NULL,NULL,2,18,NULL),(24,'2025-02-22 01:05:40',NULL,NULL,2,19,NULL),(25,'2025-02-22 02:06:27',45000,100,1,24,'Ьуьа'),(26,'2025-02-26 12:48:39',213213213,100,1,7,'купил феррари'),(27,'2025-02-26 12:49:07',2000000,100,1,23,'я прощаю тебе долг'),(28,'2025-02-26 12:53:15',25000,5,2,1,'без сделок'),(29,'2025-02-26 19:51:33',500000,100,1,2,'Покупка чего-то'),(30,'2025-02-26 19:52:00',50000,10,2,1,'По приколу'),(31,'2025-03-03 15:06:28',80000,16,2,1,'По приколу'),(32,'2025-03-03 15:07:47',25000,50,2,12,'прикол 2');
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -439,7 +579,7 @@ CREATE TABLE `projects` (
   CONSTRAINT `idclient_managers2` FOREIGN KEY (`idclient_managers`) REFERENCES `client_managers` (`idclient_managers`),
   CONSTRAINT `idclient_managers3` FOREIGN KEY (`idclient_managers`) REFERENCES `client_managers` (`idclient_managers`),
   CONSTRAINT `idproject_status` FOREIGN KEY (`idproject_status`) REFERENCES `project_status` (`idproject_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -448,7 +588,7 @@ CREATE TABLE `projects` (
 
 LOCK TABLES `projects` WRITE;
 /*!40000 ALTER TABLE `projects` DISABLE KEYS */;
-INSERT INTO `projects` VALUES (1,'2025-02-10 10:00:00','2025-03-10 10:00:00',1,1,'Анимация логотипа'),(2,'2025-01-10 10:00:00','2025-02-10 10:00:00',2,2,'Разработка логотипа и айдентики');
+INSERT INTO `projects` VALUES (1,'2025-02-10 10:00:00','2025-03-10 10:00:00',1,1,'Анимация логотипа'),(2,'2025-01-10 10:00:00','2025-02-10 10:00:00',2,2,'Разработка логотипа и айдентики'),(3,'2025-01-10 10:00:00','2025-02-10 10:00:00',1,2,'Покупка Адидаса'),(4,'2025-01-10 10:00:00','2025-02-10 10:00:00',1,1,'Проект 232332');
 /*!40000 ALTER TABLE `projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -492,7 +632,7 @@ CREATE TABLE `sales_plan` (
   PRIMARY KEY (`idsales_plan`),
   KEY `idmanagers6_idx` (`idmanagers`),
   CONSTRAINT `idmanagers6` FOREIGN KEY (`idmanagers`) REFERENCES `managers` (`idmanagers`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -501,7 +641,7 @@ CREATE TABLE `sales_plan` (
 
 LOCK TABLES `sales_plan` WRITE;
 /*!40000 ALTER TABLE `sales_plan` DISABLE KEYS */;
-INSERT INTO `sales_plan` VALUES (1,'2025-01-10 10:00:00','2025-02-10 10:00:00',50000,1);
+INSERT INTO `sales_plan` VALUES (1,'2025-01-10 10:00:00','2025-02-10 10:00:00',50000,1),(10,'2025-02-26 11:47:39','2025-02-10 10:00:00',12132,2),(11,'2025-02-14 11:51:26','2025-02-10 10:00:00',45654654,1),(12,'2025-02-28 20:02:27','2025-02-10 10:00:00',2255220,2);
 /*!40000 ALTER TABLE `sales_plan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -578,7 +718,7 @@ CREATE TABLE `tasks` (
   CONSTRAINT `idprojects` FOREIGN KEY (`idprojects`) REFERENCES `projects` (`idprojects`),
   CONSTRAINT `idtask_priorities` FOREIGN KEY (`idtask_priorities`) REFERENCES `task_priorities` (`idtask_priorities`),
   CONSTRAINT `idtask_status` FOREIGN KEY (`idtask_status`) REFERENCES `task_status` (`idtask_status`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -587,8 +727,36 @@ CREATE TABLE `tasks` (
 
 LOCK TABLES `tasks` WRITE;
 /*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-INSERT INTO `tasks` VALUES (1,'Сделать раскадровку анимации',1,1,2,'2025-02-10 10:00:00','2025-02-10 15:00:00','2025-02-10 17:00:00',1),(2,'Сделать набросок логотипа',2,2,1,'2025-01-10 10:00:00',NULL,'2025-01-10 18:00:00',2);
+INSERT INTO `tasks` VALUES (1,'Сделать раскадровку анимации',1,1,2,'2025-02-10 10:00:00','2025-02-10 15:00:00','2025-02-10 17:00:00',1),(2,'Сделать набросок логотипа',2,2,1,'2025-01-10 10:00:00',NULL,'2025-01-10 18:00:00',2),(5,'Продать 10 кроссовок Адидас',2,1,1,'2025-01-10 10:00:00','2025-01-10 10:00:00','2025-01-10 18:00:00',2),(7,'Продажа айфона 12',2,1,1,'2025-01-10 10:00:00','2025-01-10 10:00:00','2025-01-10 18:00:00',2),(8,'проект',1,1,1,'2025-01-10 10:00:00','2025-01-10 10:00:00','2025-01-10 18:00:00',1),(9,'авыапввыа',1,1,1,'2025-01-10 10:00:00','2025-01-10 10:00:00','2025-01-10 18:00:00',1),(10,'павпавп',1,1,1,'2025-01-10 10:00:00','2025-01-10 10:00:00','2025-01-10 18:00:00',1),(11,'аовылоа',3,1,1,'2025-01-10 10:00:00','2025-01-10 10:00:00','2025-01-10 18:00:00',2);
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `idusers` int NOT NULL AUTO_INCREMENT,
+  `role` int DEFAULT NULL,
+  `login` varchar(45) DEFAULT NULL,
+  `pass` varchar(45) DEFAULT NULL,
+  `full_name` varchar(45) DEFAULT NULL,
+  `years_of_work` int DEFAULT NULL,
+  PRIMARY KEY (`idusers`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,1,'Admin1','1234',NULL,NULL),(2,2,'Ghost','4321',NULL,NULL),(3,1,'boba','1234',NULL,NULL),(4,1,'5555','happy',NULL,NULL),(5,2,'boba','5555',NULL,NULL),(6,2,'boba','1234',NULL,NULL),(7,2,'bogdan','1234',NULL,NULL),(8,1,'bogdan','12345',NULL,NULL),(9,1,'bogdan123','1234',NULL,NULL),(10,1,'test','1234',NULL,NULL),(11,1,'bo','123',NULL,NULL),(12,2,'gost','123400010',NULL,NULL),(13,1,'test','test','test',25),(14,1,'bogdan','bo12300','Колесников Богдан Евгеньевич',2),(15,1,'bogdan','','Колесников Богдан Евгеньевич',2);
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -632,4 +800,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-02-25  8:45:33
+-- Dump completed on 2025-04-21 18:16:25
