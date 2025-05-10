@@ -30,10 +30,6 @@
         {
             dataGridView1 = new DataGridView();
             label1 = new Label();
-            label2 = new Label();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
             button1 = new Button();
             button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -41,11 +37,13 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 122);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(513, 255);
+            dataGridView1.Size = new Size(1136, 339);
             dataGridView1.TabIndex = 3;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -57,63 +55,21 @@
             label1.TabIndex = 2;
             label1.Text = "Задачи";
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F);
-            label2.Location = new Point(194, 19);
-            label2.Name = "label2";
-            label2.Size = new Size(195, 32);
-            label2.TabIndex = 4;
-            label2.Text = "Фильтровать по:";
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(397, 27);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(65, 19);
-            radioButton1.TabIndex = 5;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Проект";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(397, 53);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(109, 19);
-            radioButton2.TabIndex = 6;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Ответственный";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(397, 78);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(64, 19);
-            radioButton3.TabIndex = 7;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Клиент";
-            radioButton3.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            button1.Location = new Point(12, 383);
+            button1.Location = new Point(9, 490);
             button1.Name = "button1";
-            button1.Size = new Size(124, 23);
+            button1.Size = new Size(124, 25);
             button1.TabIndex = 8;
             button1.Text = "Добавить задачу";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(142, 383);
+            button2.Location = new Point(139, 490);
             button2.Name = "button2";
-            button2.Size = new Size(75, 23);
+            button2.Size = new Size(75, 25);
             button2.TabIndex = 9;
             button2.Text = "Изменить";
             button2.UseVisualStyleBackColor = true;
@@ -122,17 +78,14 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1326, 662);
             Controls.Add(button2);
             Controls.Add(button1);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
-            Controls.Add(label2);
             Controls.Add(dataGridView1);
             Controls.Add(label1);
             Name = "_3Tasks";
             Text = "_3Tasks";
+            Load += _3Tasks_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -142,10 +95,6 @@
 
         private DataGridView dataGridView1;
         private Label label1;
-        private Label label2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
         private Button button1;
         private Button button2;
     }

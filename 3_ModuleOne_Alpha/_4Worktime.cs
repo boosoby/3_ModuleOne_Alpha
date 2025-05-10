@@ -16,5 +16,18 @@ namespace _3_ModuleOne_Alpha
         {
             InitializeComponent();
         }
+
+        private void _4Worktime_Load(object sender, EventArgs e)
+        {
+            DB_4Worktime dBCon = new DB_4Worktime();
+
+            dataGridView1.DataSource = dBCon.Select();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _4_1AddWorkTime formLogIn = new _4_1AddWorkTime(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,9 +84,28 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Insert statement
-        public void Insert()
+        public void Insert(string insert_string, int insert_int)
         {
-            string query = "INSERT INTO tableinfo (name, age) VALUES('John Smith', '33')";
+            string query = $"INSERT INTO clients (full_name, idcontact_face) VALUES('{insert_string}', {insert_int})";
+
+            //open connection
+            if (this.OpenConnection() == true)
+            {
+                //create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                //Execute command
+                cmd.ExecuteNonQuery();
+
+                //close connection
+                this.CloseConnection();
+            }
+        }
+        //Insert statement
+        public void Insert_2(int insert_1, int insert_2)
+        {
+            Select_2();
+            string query = $"INSERT INTO client_managers (idclients, idmanagers) VALUES('{insert_1}', {insert_2})";
 
             //open connection
             if (this.OpenConnection() == true)
@@ -138,19 +158,260 @@ namespace _3_ModuleOne_Alpha
         }
 
         //Select statement
-        public List<string> Select()
+        public BindingSource Select()
         {
-            string query = "SELECT * FROM clients";
+            string query = "SELECT idclients, full_name FROM clients";
 
-            //Create a list to store the result
-            List<string> list = new List<string>();
-            list = new List<string>();
 
 
             //Open connection
             if (this.OpenConnection() == true)
             {
                 //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+        public BindingSource Select_phone()
+        {
+            string query = "use firstmodule2;\r\nSELECT\r\n  phone, COUNT(*)\r\nFROM\r\n    clients\r\nGROUP BY\r\n   phone\r\nHAVING \r\n    COUNT(*) > 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+        public BindingSource Select_name()
+        {
+            string query = "use firstmodule2;\r\nSELECT\r\n  full_name, COUNT(*)\r\nFROM\r\n    clients\r\nGROUP BY\r\n   full_name\r\nHAVING \r\n    COUNT(*) > 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+        public BindingSource Select_email()
+        {
+            string query = "SELECT\r\n  email, COUNT(*)\r\nFROM\r\n    clients\r\nGROUP BY\r\n   email\r\nHAVING \r\n    COUNT(*) > 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+
+                return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+        public int Select_last_client()
+        {
+
+            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["idclients"] + "");
+
+
+                }
+
+
+
+                int iddeals = Convert.ToInt32(list[0]);
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return iddeals;
+            }
+            else
+            {
+                int iddeals = 0;
+                return iddeals;
+            }
+        }
+        public string Select_client_name(int idclients)
+        {
+            string full_name = "";
+            string query = $"SELECT full_name FROM clients where idclients= {idclients};";
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //Read the data and store them in the list
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["full_name"] + "");
+
+
+                }
+                full_name = Convert.ToString(list[0]);
+                //close Data Reader
+                dataReader.Close();
+
+                //close Connection
+                this.CloseConnection();
+
+                //return list to be displayed
+                return full_name;
+            }
+            else
+            {
+                return full_name;
+            }
+        }
+
+        public string Select_2()
+        {
+            string query = "SELECT idclients FROM clients ORDER BY idclients desc limit 1";
+
+
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
+                //Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //Create a data reader and Execute the command
+
+                MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+                dataAdapter.SelectCommand = cmd;
+                DataSet dt = new DataSet();
+                dataAdapter.Fill(dt);
+                BindingSource bindingSource = new BindingSource();
+                bindingSource.DataSource = dt;
+
+
+                //close Connection
+                this.CloseConnection();
+
+                return dt.Tables[0].Rows[0].ToString();
+
+              //  return bindingSource;
+            }
+            else
+            {
+                // return list;
+                return null;
+            }
+        }
+
+        public List<string> Select_3(int idclients)
+        {
+            string query = $"SELECT full_name FROM clients where idclients = {idclients}";
+
+            List<string> list = new List<string>();
+            list = new List<string>();
+
+            //Open connection
+            if (this.OpenConnection() == true)
+            {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 //Create a data reader and Execute the command
                 MySqlDataReader dataReader = cmd.ExecuteReader();
@@ -177,6 +438,7 @@ namespace _3_ModuleOne_Alpha
                 return list;
             }
         }
+
 
         //Count statement
         public int Count()

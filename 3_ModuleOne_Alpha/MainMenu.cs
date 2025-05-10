@@ -74,5 +74,35 @@
             _11DealAnalysis formLogIn = new _11DealAnalysis(); //FormLogIn — имя формы, которую хотим открыть
             formLogIn.ShowDialog();
         }
+
+        private void MainMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _14Avg formLogIn = new _14Avg(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            _EmailConfig _emailConfig = new _EmailConfig();
+            _emailConfig.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            _EmailSend _emailSend = new _EmailSend();
+            _emailSend.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            _Calendar_Config calendar_Config = new _Calendar_Config();
+            calendar_Config.ShowDialog();
+        }
     }
 }

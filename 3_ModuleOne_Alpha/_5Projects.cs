@@ -16,5 +16,18 @@ namespace _3_ModuleOne_Alpha
         {
             InitializeComponent();
         }
+
+        private void _5Projects_Load(object sender, EventArgs e)
+        {
+            DB_5Projects dBCon = new DB_5Projects();
+
+            dataGridView1.DataSource = dBCon.Select();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _5_1NewProject newProject = new _5_1NewProject();
+          newProject.ShowDialog();
+        }
     }
 }

@@ -16,5 +16,18 @@ namespace _3_ModuleOne_Alpha
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _2_1AddPlan formLogIn = new _2_1AddPlan(); //FormLogIn — имя формы, которую хотим открыть
+            formLogIn.ShowDialog();
+        }
+
+        private void _2Plan_Load(object sender, EventArgs e)
+        {
+            DB_11Sales_Plan dBCon = new DB_11Sales_Plan();
+
+            dataGridView1.DataSource = dBCon.Select();
+        }
     }
 }
